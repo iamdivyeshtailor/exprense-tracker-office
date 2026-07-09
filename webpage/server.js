@@ -24,7 +24,7 @@ app.use(session({
 }));
 
 // Configure Multer for local Invoice Uploads
-const uploadsDir = path.join(__dirname, 'public', 'uploads');
+const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
@@ -285,12 +285,12 @@ function calculateStats(data) {
     const num = parseFloat(clean);
     if (isNaN(num)) return 0;
     
-    if (str.includes('$')) {
+    if (str.includes('A$')) {
+      return num * 55; // AUD to INR
+    } else if (str.includes('$')) {
       return num * 83; // USD to INR
     } else if (str.includes('€')) {
       return num * 90; // EUR to INR
-    } else if (str.includes('A$')) {
-      return num * 55; // AUD to INR
     }
     return num;
   }
@@ -549,6 +549,23 @@ app.get('/api/status', (req, res) => {
 
 // Protect other API routes
 app.use('/api', requireLogin);
+
+// API: Secure Invoice Download Endpoint
+app.get('/api/download/:filename', requireLogin, (req, res) => {
+  try {
+    const filename = req.params.filename;
+    const safeFilename = path.basename(filename);
+    const filePath = path.join(uploadsDir, safeFilename);
+    if (fs.existsSync(filePath)) {
+      res.sendFile(filePath);
+    } else {
+      res.status(404).send('File not found');
+    }
+  } catch (error) {
+    console.error('Download failed:', error);
+    res.status(500).send('Internal server error');
+  }
+});
 
 // API: Get Unified Data
 app.get('/api/data', async (req, res) => {

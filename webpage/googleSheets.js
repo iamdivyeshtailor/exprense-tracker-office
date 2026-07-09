@@ -281,12 +281,12 @@ function calculateStats(data) {
     const num = parseFloat(clean);
     if (isNaN(num)) return 0;
     
-    if (str.includes('$')) {
+    if (str.includes('A$')) {
+      return num * 55; // AUD to INR
+    } else if (str.includes('$')) {
       return num * 83; // USD to INR
     } else if (str.includes('€')) {
       return num * 90; // EUR to INR
-    } else if (str.includes('A$')) {
-      return num * 55; // AUD to INR
     }
     return num;
   }
@@ -382,7 +382,26 @@ async function saveGoogleSheetsRow(type, rowIndex, data) {
     range: `${sheetName}!A1:Z1`
   });
   
-  const headers = (response.data.values && response.data.values[0]) || [];
+  let headers = (response.data.values && response.data.values[0]) || [];
+
+  // Check if 'Invoice File' is in the spreadsheet headers. If not, append it, update headers on Google Sheets, and reload.
+  if (!headers.includes('Invoice File')) {
+    headers.push('Invoice File');
+    const colLetter = getColLetter(headers.length);
+    await sheets.spreadsheets.values.update({
+      spreadsheetId,
+      range: `${sheetName}!A1:${colLetter}1`,
+      valueInputOption: 'USER_ENTERED',
+      requestBody: { values: [headers] }
+    });
+    
+    // Reload headers
+    const reloadResponse = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: `${sheetName}!A1:${colLetter}1`
+    });
+    headers = (reloadResponse.data.values && reloadResponse.data.values[0]) || [];
+  }
 
   // Build row array matching header order
   const rowArray = headers.map(header => {

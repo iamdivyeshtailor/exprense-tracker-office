@@ -19,19 +19,14 @@ async function checkExpirationsAndNotify(loadDataFunction) {
     return { success: false, reason: 'SMTP not configured' };
   }
 
-  console.log('[Scheduler] Running daily check for items expiring in exactly 7 days...');
+  console.log('[Scheduler] Running daily check for items expiring in <= 7 days...');
   
   try {
     const data = await loadDataFunction();
     const expiringItems = [];
     const now = new Date();
     
-    // Set hours to 0 to compare dates cleanly
-    const targetDate = new Date();
-    targetDate.setDate(now.getDate() + 7);
-    const targetDateStr = targetDate.toISOString().split('T')[0];
-    
-    console.log(`[Scheduler] Checking for expiry date: ${targetDateStr}`);
+    console.log(`[Scheduler] Checking for expiry dates <= 7 days from now`);
 
     const typesToCheck = [
       { key: 'purchases', name: 'IT Purchase / License', nameField: 'Tool Name' },
@@ -44,25 +39,26 @@ async function checkExpirationsAndNotify(loadDataFunction) {
       if (sheetData && sheetData.rows) {
         sheetData.rows.forEach(row => {
           if (row['Expiry']) {
-            // Normalize cell date
-            let rowExpiryStr = '';
             try {
               const expDate = new Date(row['Expiry']);
               if (!isNaN(expDate.getTime())) {
-                rowExpiryStr = expDate.toISOString().split('T')[0];
+                const expMidnight = new Date(expDate.getFullYear(), expDate.getMonth(), expDate.getDate());
+                const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const diffTime = expMidnight.getTime() - nowMidnight.getTime();
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                if (diffDays <= 7) {
+                  expiringItems.push({
+                    type: typeInfo.name,
+                    name: row[typeInfo.nameField] || 'Unnamed item',
+                    cost: row['Cost'] || row['Renewal Price'] || row['COST'] || 'N/A',
+                    expiry: row['Expiry'],
+                    owner: row['ID'] || row['Username'] || 'N/A'
+                  });
+                }
               }
             } catch (e) {
-              rowExpiryStr = String(row['Expiry']).trim();
-            }
-
-            if (rowExpiryStr === targetDateStr) {
-              expiringItems.push({
-                type: typeInfo.name,
-                name: row[typeInfo.nameField] || 'Unnamed item',
-                cost: row['Cost'] || row['Renewal Price'] || row['COST'] || 'N/A',
-                expiry: row['Expiry'],
-                owner: row['ID'] || row['Username'] || 'N/A'
-              });
+              console.error('[Scheduler] Error parsing expiry date:', row['Expiry'], e);
             }
           }
         });
@@ -70,7 +66,7 @@ async function checkExpirationsAndNotify(loadDataFunction) {
     });
 
     if (expiringItems.length === 0) {
-      console.log('[Scheduler] No items expiring in exactly 7 days.');
+      console.log('[Scheduler] No items expiring in <= 7 days.');
       return { success: true, count: 0 };
     }
 
@@ -112,11 +108,11 @@ async function sendAlertEmail(items) {
   const mailOptions = {
     from: `"KD Purchases Dashboard" <${process.env.SMTP_USER}>`,
     to: process.env.NOTIFICATION_EMAIL_TO,
-    subject: `⚠️ URGENT: ${items.length} IT Purchases/Domains Expiring in 7 Days`,
+    subject: `⚠️ URGENT: ${items.length} IT Purchases/Domains Expiring in <= 7 Days`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #cbd5e1; border-radius: 8px; background-color: #f8fafc;">
         <h2 style="color: #0f172a; border-bottom: 2px solid #ef4444; padding-bottom: 10px; margin-top: 0;">⚠️ Expiration Alerts Center</h2>
-        <p style="color: #334155; font-size: 16px;">This is an automated reminder that the following items are expiring in <b>exactly 7 days</b>. Please review and process their renewals.</p>
+        <p style="color: #334155; font-size: 16px;">This is an automated reminder that the following items are expiring in <b>7 days or less</b>. Please review and process their renewals.</p>
         
         <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
           <thead>

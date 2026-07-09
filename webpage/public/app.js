@@ -7,6 +7,7 @@ let systemStatus = {};
 const navLinks = document.querySelectorAll('.nav-link');
 const tabDashboard = document.getElementById('tab-dashboard');
 const tabData = document.getElementById('tab-data');
+const tabCourses = document.getElementById('tab-courses');
 const tabBillingHistory = document.getElementById('tab-billingHistory');
 const pageTitle = document.getElementById('page-title');
 const pageSubtitle = document.getElementById('page-subtitle');
@@ -19,6 +20,9 @@ const logoutBtn = document.getElementById('logout-btn');
 const tableSearchInput = document.getElementById('table-search');
 const filterExpirySelect = document.getElementById('filter-expiry');
 const filterProviderSelect = document.getElementById('filter-provider');
+const coursesSearchInput = document.getElementById('courses-search');
+const filterCoursesExpirySelect = document.getElementById('filter-courses-expiry');
+const filterCoursesProviderSelect = document.getElementById('filter-courses-provider');
 const billingSearchInput = document.getElementById('billing-search');
 const filterBillingProviderSelect = document.getElementById('filter-billing-provider');
 
@@ -162,6 +166,16 @@ function setupEventListeners() {
   filterExpirySelect.addEventListener('change', filterAndRenderActiveTable);
   filterProviderSelect.addEventListener('change', filterAndRenderActiveTable);
   
+  if (coursesSearchInput) {
+    coursesSearchInput.addEventListener('input', filterAndRenderActiveTable);
+  }
+  if (filterCoursesExpirySelect) {
+    filterCoursesExpirySelect.addEventListener('change', filterAndRenderActiveTable);
+  }
+  if (filterCoursesProviderSelect) {
+    filterCoursesProviderSelect.addEventListener('change', filterAndRenderActiveTable);
+  }
+  
   billingSearchInput.addEventListener('input', renderBillingHistoryTable);
   filterBillingProviderSelect.addEventListener('change', renderBillingHistoryTable);
 
@@ -209,36 +223,51 @@ function switchTab(tab) {
   filterProviderSelect.value = '';
   billingSearchInput.value = '';
   filterBillingProviderSelect.value = '';
+  if (coursesSearchInput) {
+    coursesSearchInput.value = '';
+  }
+  if (filterCoursesExpirySelect) {
+    filterCoursesExpirySelect.value = '';
+  }
+  if (filterCoursesProviderSelect) {
+    filterCoursesProviderSelect.value = '';
+  }
+
+  // Toggle tab panel visibility
+  tabDashboard.classList.remove('active');
+  tabData.classList.remove('active');
+  tabBillingHistory.classList.remove('active');
+  if (tabCourses) tabCourses.classList.remove('active');
 
   if (tab === 'dashboard') {
     tabDashboard.classList.add('active');
-    tabData.classList.remove('active');
-    tabBillingHistory.classList.remove('active');
     pageTitle.textContent = 'Executive Dashboard';
     pageSubtitle.textContent = 'Consolidated view of IT investments, hosting, and billing history.';
     addBtn.style.display = 'none';
     renderSpendChart();
   } else if (tab === 'billingHistory') {
-    tabDashboard.classList.remove('active');
-    tabData.classList.remove('active');
     tabBillingHistory.classList.add('active');
     pageTitle.textContent = 'Monthly Billing History';
     pageSubtitle.textContent = 'Historical breakdown of monthly invoices and tool costs.';
     addBtn.style.display = 'inline-flex';
     populateProviderFilters();
     renderBillingHistoryTable();
+  } else if (tab === 'courses') {
+    if (tabCourses) tabCourses.classList.add('active');
+    addBtn.style.display = 'inline-flex';
+    pageTitle.textContent = 'Courses and Training';
+    pageSubtitle.textContent = 'Manage and view items under the Courses and Training sheet.';
+    populateProviderFilters();
+    filterAndRenderActiveTable();
   } else {
-    tabDashboard.classList.remove('active');
     tabData.classList.add('active');
-    tabBillingHistory.classList.remove('active');
     addBtn.style.display = 'inline-flex';
     
     const titles = {
       purchases: 'IT Purchases & Licenses',
       domains: 'Domain Inventory',
       servers: 'Server & Hosting Details',
-      aiModels: 'AI & GPT Model Subscriptions',
-      courses: 'Courses and Training'
+      aiModels: 'AI & GPT Model Subscriptions'
     };
     pageTitle.textContent = titles[tab] || 'IT Purchases';
     pageSubtitle.textContent = `Manage and view items under the ${titles[tab] || tab} sheet.`;
@@ -300,11 +329,16 @@ function updateDashboardMetrics() {
 function populateProviderFilters() {
   if (!appData) return;
 
-  const currentSelect = activeTab === 'billingHistory' ? filterBillingProviderSelect : filterProviderSelect;
+  let currentSelect = filterProviderSelect;
+  if (activeTab === 'billingHistory') {
+    currentSelect = filterBillingProviderSelect;
+  } else if (activeTab === 'courses') {
+    currentSelect = filterCoursesProviderSelect;
+  }
   if (!currentSelect) return;
 
   // Clear previous options except first
-  currentSelect.innerHTML = `<option value="">All Providers / Tools</option>`;
+  currentSelect.innerHTML = activeTab === 'courses' ? `<option value="">All Platforms</option>` : `<option value="">All Providers / Tools</option>`;
 
   const providers = new Set();
 
@@ -557,9 +591,9 @@ function filterAndRenderActiveTable() {
   if (!appData || !appData[activeTab]) return;
 
   const sheetData = appData[activeTab];
-  const searchQuery = tableSearchInput.value.toLowerCase().trim();
-  const filterExpiry = filterExpirySelect.value;
-  const filterProvider = filterProviderSelect.value;
+  const searchQuery = (activeTab === 'courses' ? (coursesSearchInput ? coursesSearchInput.value : '') : tableSearchInput.value).toLowerCase().trim();
+  const filterExpiry = activeTab === 'courses' ? (filterCoursesExpirySelect ? filterCoursesExpirySelect.value : '') : filterExpirySelect.value;
+  const filterProvider = activeTab === 'courses' ? (filterCoursesProviderSelect ? filterCoursesProviderSelect.value : '') : filterProviderSelect.value;
   const now = new Date();
 
   const filteredRows = sheetData.rows.filter(row => {
@@ -605,7 +639,7 @@ function filterAndRenderActiveTable() {
     return matchesSearch && matchesExpiry && matchesProvider;
   });
 
-  const table = document.getElementById('data-table');
+  const table = activeTab === 'courses' ? document.getElementById('courses-table') : document.getElementById('data-table');
   const thead = table.querySelector('thead');
   const tbody = table.querySelector('tbody');
 
@@ -688,8 +722,10 @@ function filterAndRenderActiveTable() {
       } else if (headerLower === 'invoice file') {
         // Download Invoice Button
         if (val) {
+          const filename = val.split(/[/\\]/).pop();
+          const downloadUrl = '/api/download/' + filename;
           td.innerHTML = `
-            <button class="action-btn action-download" data-url="${val}" title="Download Receipt">
+            <button class="action-btn action-download" data-url="${downloadUrl}" title="Download Receipt">
               <svg viewBox="0 0 24 24" width="16" height="16"><path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"/></svg>
             </button>
           `;
@@ -699,7 +735,7 @@ function filterAndRenderActiveTable() {
         } else {
           td.textContent = '—';
         }
-      } else if (header === 'Tool Name' || header === 'Domain Name' || header === 'Server Name' || header === 'AI MODEL') {
+      } else if (header === 'Tool Name' || header === 'Domain Name' || header === 'Server Name' || header === 'AI MODEL' || header === 'Course Name' || header === 'Platform' || header === 'Topic') {
         td.textContent = val;
         td.className = 'cell-primary';
       } else {
