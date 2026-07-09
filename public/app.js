@@ -179,7 +179,7 @@ function switchTab(tab) {
     tabBillingHistory.classList.add('active');
     pageTitle.textContent = 'Monthly Billing History';
     pageSubtitle.textContent = 'Historical breakdown of monthly invoices and tool costs.';
-    addBtn.style.display = 'none';
+    addBtn.style.display = 'inline-flex';
     populateProviderFilters();
     renderBillingHistoryTable();
   } else {
@@ -721,10 +721,14 @@ function renderBillingHistoryTable() {
     th.textContent = header;
     headerRow.appendChild(th);
   });
+  // Actions header
+  const thAction = document.createElement('th');
+  thAction.textContent = 'Actions';
+  headerRow.appendChild(thAction);
   thead.appendChild(headerRow);
 
   if (filteredRows.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="${history.headers.length}" class="no-data">No matching records found.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${history.headers.length + 1}" class="no-data">No matching records found.</td></tr>`;
     return;
   }
 
@@ -761,6 +765,23 @@ function renderBillingHistoryTable() {
       }
       tr.appendChild(td);
     });
+
+    // Actions cell
+    const tdActions = document.createElement('td');
+    tdActions.className = 'cell-actions';
+    tdActions.innerHTML = `
+      <button class="action-btn action-edit" title="Edit row">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+      </button>
+      <button class="action-btn action-delete" title="Delete row">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+      </button>
+    `;
+    
+    tdActions.querySelector('.action-edit').addEventListener('click', () => openModal(row));
+    tdActions.querySelector('.action-delete').addEventListener('click', () => confirmDelete(row._rowIndex));
+    
+    tr.appendChild(tdActions);
     tbody.appendChild(tr);
   });
 }
@@ -865,7 +886,8 @@ function openModal(row = null) {
     domains: 'Domain Record',
     servers: 'Server Details',
     aiModels: 'AI Model License',
-    courses: 'Course / Training Detail'
+    courses: 'Course / Training Detail',
+    billingHistory: 'Billing History Entry'
   };
   modalTitle.textContent = (row ? 'Edit ' : 'Add ') + (activeTabTitles[activeTab] || 'Item');
 
