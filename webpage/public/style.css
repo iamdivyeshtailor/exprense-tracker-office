@@ -886,3 +886,20 @@ tr:last-child {
     grid-column: span 1;
   }
 }
+
+/* Billing History Table columns configuration to prevent cell squishing */
+#billing-table {
+  width: max-content;
+  min-width: 100%;
+}
+#billing-table th, #billing-table td {
+  min-width: 110px;
+  white-space: nowrap;
+}
+#billing-table th:first-child, #billing-table td:first-child,
+#billing-table th:nth-child(2), #billing-table td:nth-child(2) {
+  min-width: 180px;
+}
+#billing-table th:nth-child(3), #billing-table td:nth-child(3) {
+  min-width: 220px;
+}
