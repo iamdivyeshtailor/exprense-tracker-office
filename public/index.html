@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KD Purchases & Billing Dashboard</title>
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-icon">
+          <!-- Credit Card SVG Icon -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
+            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+          </svg>
+        </div>
+        <h2>KD Purchases</h2>
+      </div>
+      <nav class="nav-links">
+        <a href="#" class="nav-link active" data-tab="dashboard">
+          <!-- Dashboard Chart Piece SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2z"/>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-link" data-tab="purchases">
+          <!-- Laptop SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+          </svg>
+          <span>IT Purchases</span>
+        </a>
+        <a href="#" class="nav-link" data-tab="domains">
+          <!-- Globe SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/>
+          </svg>
+          <span>Domains</span>
+        </a>
+        <a href="#" class="nav-link" data-tab="servers">
+          <!-- Server SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/>
+          </svg>
+          <span>Servers & Hosting</span>
+        </a>
+        <a href="#" class="nav-link" data-tab="aiModels">
+          <!-- Brain SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.07 19.58 10.48 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm-1-9h2v2h-2V9zm0 4h2v2h-2v-2z"/>
+          </svg>
+          <span>AI & GPT Models</span>
+        </a>
+        <a href="#" class="nav-link" data-tab="billingHistory">
+          <!-- Receipt SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2zM3 22l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2H3v20z"/>
+          </svg>
+          <span>Billing History</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Sync: <span id="sync-mode" style="font-weight:600; color:white;">Local Excel</span></p>
+        <span class="sync-status" id="connection-status">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-right:3px;">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          Connected
+        </span>
+        <button id="logout-btn" class="btn btn-secondary btn-logout" style="width:100%; margin-top:1.5rem; justify-content:center; padding: 0.5rem;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      <!-- Top header bar -->
+      <header class="top-header">
+        <div class="header-title">
+          <h1 id="page-title">Executive Dashboard</h1>
+          <p id="page-subtitle">Consolidated view of IT investments, hosting, and billing history.</p>
+        </div>
+        <div class="header-actions">
+          <button id="add-btn" class="btn btn-primary" style="display: none;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="white">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </svg>
+            Add Item
+          </button>
+          <button id="test-notif-btn" class="btn btn-secondary" title="Test 7-day email alerts config">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 4.36 6 6.92 6 10v5l-2 2v1h16v-1l-2-2z"/>
+            </svg>
+            Test Email Alerts
+          </button>
+          <button id="refresh-btn" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+            </svg>
+            Sync Excel
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Tab -->
+      <div id="tab-dashboard" class="tab-panel active">
+        <!-- Metric Cards -->
+        <section class="metrics-grid">
+          <div class="metric-card card-spend">
+            <div class="metric-header">
+              <span>Est. Monthly Spend</span>
+              <div class="metric-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+              </div>
+            </div>
+            <h3 id="stat-spend" class="metric-value">₹ 0</h3>
+            <p class="metric-desc">Consolidated monthly average</p>
+          </div>
+          <div class="metric-card card-subs">
+            <div class="metric-header">
+              <span>Active Subscriptions</span>
+              <div class="metric-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+              </div>
+            </div>
+            <h3 id="stat-subs" class="metric-value">0</h3>
+            <p class="metric-desc">IT Purchases tracked</p>
+          </div>
+          <div class="metric-card card-domains">
+            <div class="metric-header">
+              <span>Domains Registered</span>
+              <div class="metric-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/></svg>
+              </div>
+            </div>
+            <h3 id="stat-domains" class="metric-value">0</h3>
+            <p class="metric-desc">Domain assets active</p>
+          </div>
+          <div class="metric-card card-alerts">
+            <div class="metric-header">
+              <span>Expiring Soon</span>
+              <div class="metric-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+              </div>
+            </div>
+            <h3 id="stat-alerts" class="metric-value">0</h3>
+            <p class="metric-desc">Renewals in next 30 days</p>
+          </div>
+        </section>
+
+        <!-- Charts & Overviews -->
+        <section class="dashboard-charts">
+          <div class="chart-card">
+            <h3>Monthly Spending Trend (Last 12 Months)</h3>
+            <div class="chart-container" id="svg-chart-container">
+              <!-- Custom responsive SVG chart rendered via app.js -->
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Recent Expiring Items</h3>
+            <div class="upcoming-expirations" id="upcoming-list">
+              <p class="no-data">No items expiring soon.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Data Table Tabs (Dynamic Structure) -->
+      <div id="tab-data" class="tab-panel">
+        <div class="table-controls">
+          <div class="search-box">
+            <!-- Search icon SVG -->
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            <input type="text" id="table-search" placeholder="Search name, domain, user...">
+          </div>
+          <div class="filters">
+            <!-- Dynamic provider filter dropdown -->
+            <select id="filter-provider">
+              <option value="">All Providers / Tools</option>
+              <!-- Populated dynamically via JS -->
+            </select>
+            
+            <select id="filter-expiry">
+              <option value="">All Expiries</option>
+              <option value="expiring-30">Expiring in 30 Days</option>
+              <option value="expired">Expired</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table id="data-table">
+            <thead>
+              <!-- Headers rendered dynamically -->
+            </thead>
+            <tbody>
+              <!-- Rows rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Billing History Tab -->
+      <div id="tab-billingHistory" class="tab-panel">
+        <div class="table-controls">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            <input type="text" id="billing-search" placeholder="Search billing category/items...">
+          </div>
+          <div class="filters">
+            <select id="filter-billing-provider">
+              <option value="">All Providers</option>
+              <!-- Dynamic -->
+            </select>
+          </div>
+        </div>
+        <div class="table-container">
+          <table id="billing-table">
+            <thead>
+              <!-- Dynamic -->
+            </thead>
+            <tbody>
+              <!-- Dynamic -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Form Modal (Add & Edit) -->
+  <div class="modal-backdrop" id="form-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Add New IT Purchase</h3>
+        <button id="modal-close" class="modal-close-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- We use a standard layout. We will handle file uploading via AJAX in app.js -->
+      <form id="purchase-form">
+        <div class="form-fields-grid">
+          <!-- Main dynamic inputs (Tool Name, cost, expiry etc) will render here -->
+          <div class="form-fields-grid" id="modal-form-fields" style="grid-column: span 2; padding: 0; display: contents;">
+            <!-- Filled via JS -->
+          </div>
+          
+          <!-- Invoice Attachment (Dynamic Multi-part upload) -->
+          <div class="form-group full-width" style="border-top:1px solid var(--glass-border); padding-top:1.5rem; margin-top:0.5rem;">
+            <label for="invoice-upload-input">Attach Receipt / Invoice Bill (PDF or Image)</label>
+            <div class="upload-area" id="upload-area-box">
+              <input type="file" id="invoice-upload-input" accept="application/pdf,image/*" style="display:none;">
+              <button type="button" class="btn btn-secondary" id="trigger-upload-btn" style="gap: 0.5rem; margin-bottom: 0.5rem;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/>
+                </svg>
+                Choose File
+              </button>
+              <span id="upload-filename-label" style="color:var(--text-secondary); font-size:0.85rem;">No file selected</span>
+              <input type="hidden" id="invoice-file-path-hidden">
+              <div class="progress-bar-container" id="upload-progress-container" style="display:none; width:100%; height:4px; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:0.5rem; overflow:hidden;">
+                <div id="upload-progress-bar" style="width:0%; height:100%; background:var(--accent-secondary); transition:width 0.2s ease;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="modal-cancel" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Client-side App JS -->
+  <script src="app.js"></script>
+</body>
+</html>

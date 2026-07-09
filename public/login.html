@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - KD Purchases</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #1e1b4b 0%, #090d16 100%);
+      padding: 1.5rem;
+    }
+    
+    .login-container {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      animation: loginFadeIn 0.5s ease-out forwards;
+    }
+    
+    @keyframes loginFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .login-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: white;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+    
+    .login-logo svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+    
+    .login-container h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    
+    .login-container p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 2.25rem;
+    }
+    
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-align: left;
+    }
+    
+    .login-form label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .login-form input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--bg-input);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: white;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    
+    .login-form input:focus {
+      border-color: var(--glass-border-focus);
+    }
+    
+    .error-msg {
+      color: var(--danger);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+      display: none;
+      animation: shake 0.3s ease-in-out;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+    
+    .login-btn {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-logo">
+      <!-- Shield Keyhole Lock SVG Icon -->
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 3.08 1.4 5.82 3.6 7.7L12 22l6.4-2.3c2.2-1.88 3.6-4.62 3.6-7.7 0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm1-3.28V10h-2v1.72c-.59.34-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.41-1.38-1-1.72z" />
+      </svg>
+    </div>
+    <h2>KD IT Purchases</h2>
+    <p>Please log in to manage active purchase tracking records.</p>
+    
+    <form class="login-form" id="login-form">
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <label for="password">Administrator Password</label>
+        <input type="password" id="password" placeholder="Enter password" required autofocus>
+        <div class="error-msg" id="error-msg">Invalid password. Please try again.</div>
+      </div>
+      <button type="submit" class="btn btn-primary login-btn">Log In</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('error-msg');
+      
+      errorMsg.style.display = 'none';
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password })
+        });
+        const result = await response.json();
+        
+        if (result.success) {
+          window.location.href = '/';
+        } else {
+          errorMsg.textContent = result.error || 'Invalid password';
+          errorMsg.style.display = 'block';
+        }
+      } catch (err) {
+        errorMsg.textContent = 'Failed to communicate with server.';
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

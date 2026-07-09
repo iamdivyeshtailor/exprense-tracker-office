@@ -1,0 +1,7413 @@
+# List DigitalOcean droplets
+
+> [@List DigitalOcean droplets](thread://019f184a-0373-7521-a2b4-45a75f35f896)
+
+<details><summary>3 previous messages</summary>
+
+> I’m checking the thread-management path first so I can open the referenced Codex chat rather than guessing at it.
+>
+> I found the thread tools. Next I’m reading the referenced chat so I can confirm what it contains before I do anything else.
+>
+> I found the exact thread. I’m opening it in the Codex app now so you can follow the DigitalOcean context directly.
+</details>
+
+Opened the referenced Codex thread: [List DigitalOcean droplets](thread://019f184a-0373-7521-a2b4-45a75f35f896).
+
+If you want, I can also summarize that thread or continue from the DigitalOcean inventory context.
+
+> [@app-6a3c278c93ac8191b29768648d63a754](plugin://app-6a3c278c93ac8191b29768648d63a754@openai-curated-remote) Can you please list down all the running droplets along with on which plan they are on
+
+<details><summary>3 previous messages</summary>
+
+> I’m checking the DigitalOcean connector path now so I can pull the running droplets and their plans rather than relying on the older thread summary.
+>
+> I found the droplet and size tools. I’m pulling both in parallel so I can filter to running droplets and map each size slug to its plan.
+>
+> <details><summary>Called 2 tools</summary>
+>
+> MCP tool call
+>
+> codex_apps.digitalocean.droplet-list
+>
+> ```json
+> {
+>   "Page": 1,
+>   "PerPage": 200
+> }
+> ```
+>
+> ```text
+> [
+>   {
+>     "backup_ids": [],
+>     "created_at": "2024-03-13T05:46:37Z",
+>     "disk": 60,
+>     "features": [
+>       "monitoring",
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 406622953,
+>     "image": {
+>       "id": 129211873,
+>       "name": "22.04 (LTS) x64",
+>       "type": "base",
+>       "distribution": "Ubuntu",
+>       "min_disk_size": 7,
+>       "size_gigabytes": 0.72,
+>       "created_at": "2023-03-22T19:17:23Z",
+>       "description": "Ubuntu 22.04 (LTS) x64",
+>       "status": "retired"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 2048,
+>     "name": "GITLAB-RUNNERS",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "64.227.135.33",
+>           "netmask": "255.255.248.0",
+>           "gateway": "64.227.128.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.0.3",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.0.1",
+>           "type": "private"
+>         }
+>       ]
+>     },
+>     "next_backup_window": null,
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-2vcpu-2gb",
+>       "memory": 2048,
+>       "vcpus": 2,
+>       "disk": 60,
+>       "price_monthly": 18,
+>       "price_hourly": 0.02679,
+>       "regions": [
+>         "ams3",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo2",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 3,
+>       "description": "Basic",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 60,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-2vcpu-2gb",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "GITLAB-RUNNERS",
+>       "MERN",
+>       "STAGING"
+>     ],
+>     "vcpus": 2,
+>     "volume_ids": [],
+>     "vpc_uuid": "d1bdf644-562f-4871-9979-89b396bf192f"
+>   },
+>   {
+>     "backup_ids": [],
+>     "created_at": "2024-03-13T11:17:25Z",
+>     "disk": 80,
+>     "features": [
+>       "monitoring",
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 406671285,
+>     "image": {
+>       "id": 129211873,
+>       "name": "22.04 (LTS) x64",
+>       "type": "base",
+>       "distribution": "Ubuntu",
+>       "min_disk_size": 7,
+>       "size_gigabytes": 0.72,
+>       "created_at": "2023-03-22T19:17:23Z",
+>       "description": "Ubuntu 22.04 (LTS) x64",
+>       "status": "retired"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 4096,
+>     "name": "MERN-Development",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "167.71.228.223",
+>           "netmask": "255.255.240.0",
+>           "gateway": "167.71.224.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.0.4",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.0.1",
+>           "type": "private"
+>         }
+>       ]
+>     },
+>     "next_backup_window": null,
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-2vcpu-4gb-amd",
+>       "memory": 4096,
+>       "vcpus": 2,
+>       "disk": 80,
+>       "price_monthly": 28,
+>       "price_hourly": 0.04167,
+>       "regions": [
+>         "ams3",
+>         "atl1",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 4,
+>       "description": "Basic AMD",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 80,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-2vcpu-4gb-amd",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "MERN"
+>     ],
+>     "vcpus": 2,
+>     "volume_ids": [
+>       "07ac3975-e220-11f0-9f81-0a58ac14b0d2"
+>     ],
+>     "vpc_uuid": "d1bdf644-562f-4871-9979-89b396bf192f"
+>   },
+>   {
+>     "backup_ids": [],
+>     "created_at": "2024-09-13T12:22:06Z",
+>     "disk": 120,
+>     "features": [
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 445044270,
+>     "image": {
+>       "id": 160232537,
+>       "name": "24.04 (LTS) x64",
+>       "type": "base",
+>       "distribution": "Ubuntu",
+>       "min_disk_size": 7,
+>       "size_gigabytes": 0.62,
+>       "created_at": "2024-07-10T17:07:24Z",
+>       "description": "Ubuntu 24.04 (LTS) x64",
+>       "status": "retired"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 4096,
+>     "name": "gitlab.webcase.me",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "206.189.128.23",
+>           "netmask": "255.255.240.0",
+>           "gateway": "206.189.128.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.0.5",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.0.1",
+>           "type": "private"
+>         }
+>       ]
+>     },
+>     "next_backup_window": null,
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-2vcpu-4gb-120gb-intel",
+>       "memory": 4096,
+>       "vcpus": 2,
+>       "disk": 120,
+>       "price_monthly": 32,
+>       "price_hourly": 0.04762,
+>       "regions": [
+>         "ams3",
+>         "atl1",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "ric1",
+>         "sfo2",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 4,
+>       "description": "Basic Intel",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 120,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-2vcpu-4gb-120gb-intel",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "gitlab",
+>       "Production"
+>     ],
+>     "vcpus": 2,
+>     "volume_ids": [],
+>     "vpc_uuid": "d1bdf644-562f-4871-9979-89b396bf192f"
+>   },
+>   {
+>     "backup_ids": [
+>       234617959,
+>       233675346,
+>       232739744,
+>       231790444
+>     ],
+>     "created_at": "2026-02-25T09:19:44Z",
+>     "disk": 25,
+>     "features": [
+>       "backups",
+>       "monitoring",
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 554343298,
+>     "image": {
+>       "id": 195932981,
+>       "name": "24.04 (LTS) x64",
+>       "type": "base",
+>       "distribution": "Ubuntu",
+>       "min_disk_size": 7,
+>       "size_gigabytes": 3.76,
+>       "created_at": "2025-08-08T15:11:27Z",
+>       "description": "Ubuntu 24.04 (LTS) x64",
+>       "status": "retired"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 2048,
+>     "name": "nmwg.webvoltz.com",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "64.227.177.170",
+>           "netmask": "255.255.240.0",
+>           "gateway": "64.227.176.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.16.2",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.16.1",
+>           "type": "private"
+>         },
+>         {
+>           "ip_address": "168.144.0.189",
+>           "netmask": "255.255.252.0",
+>           "gateway": "168.144.0.1",
+>           "type": "public"
+>         }
+>       ]
+>     },
+>     "next_backup_window": {
+>       "start": "2026-07-05T00:00:00Z",
+>       "end": "2026-07-05T04:00:00Z"
+>     },
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-2vcpu-2gb",
+>       "memory": 2048,
+>       "vcpus": 2,
+>       "disk": 60,
+>       "price_monthly": 18,
+>       "price_hourly": 0.02679,
+>       "regions": [
+>         "ams3",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo2",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 3,
+>       "description": "Basic",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 60,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-2vcpu-2gb",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "Netmaker",
+>       "VPN",
+>       "webvoltz"
+>     ],
+>     "vcpus": 2,
+>     "volume_ids": [],
+>     "vpc_uuid": "a477a8bc-0f5e-48ea-91a6-276632603cc0"
+>   },
+>   {
+>     "backup_ids": [],
+>     "created_at": "2026-02-25T10:04:53Z",
+>     "disk": 25,
+>     "features": [
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 554350867,
+>     "image": {
+>       "id": 195932981,
+>       "name": "24.04 (LTS) x64",
+>       "type": "base",
+>       "distribution": "Ubuntu",
+>       "min_disk_size": 7,
+>       "size_gigabytes": 3.76,
+>       "created_at": "2025-08-08T15:11:27Z",
+>       "description": "Ubuntu 24.04 (LTS) x64",
+>       "status": "retired"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 4096,
+>     "name": "nmgw.webvoltz.com",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "64.227.182.77",
+>           "netmask": "255.255.240.0",
+>           "gateway": "64.227.176.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.16.3",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.16.1",
+>           "type": "private"
+>         },
+>         {
+>           "ip_address": "168.144.0.205",
+>           "netmask": "255.255.252.0",
+>           "gateway": "168.144.0.1",
+>           "type": "public"
+>         }
+>       ]
+>     },
+>     "next_backup_window": null,
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "c-2",
+>       "memory": 4096,
+>       "vcpus": 2,
+>       "disk": 25,
+>       "price_monthly": 42,
+>       "price_hourly": 0.0625,
+>       "regions": [
+>         "ams3",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo2",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 4,
+>       "description": "CPU-Optimized",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 25,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "c-2",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "Netmaker",
+>       "VPN",
+>       "webvoltz",
+>       "Devops"
+>     ],
+>     "vcpus": 2,
+>     "volume_ids": [],
+>     "vpc_uuid": "a477a8bc-0f5e-48ea-91a6-276632603cc0"
+>   },
+>   {
+>     "backup_ids": [
+>       234703574,
+>       233789183,
+>       232843678,
+>       231905185
+>     ],
+>     "created_at": "2026-03-12T09:44:28Z",
+>     "disk": 160,
+>     "features": [
+>       "backups",
+>       "monitoring",
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 557713317,
+>     "image": {
+>       "id": 195932981,
+>       "name": "24.04 (LTS) x64",
+>       "type": "base",
+>       "distribution": "Ubuntu",
+>       "min_disk_size": 7,
+>       "size_gigabytes": 3.76,
+>       "created_at": "2025-08-08T15:11:27Z",
+>       "description": "Ubuntu 24.04 (LTS) x64",
+>       "status": "retired"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 8192,
+>     "name": "Sonarqube-Server",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "134.209.149.138",
+>           "netmask": "255.255.240.0",
+>           "gateway": "134.209.144.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.0.2",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.0.1",
+>           "type": "private"
+>         }
+>       ]
+>     },
+>     "next_backup_window": {
+>       "start": "2026-07-05T12:00:00Z",
+>       "end": "2026-07-05T16:00:00Z"
+>     },
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-4vcpu-8gb-amd",
+>       "memory": 8192,
+>       "vcpus": 4,
+>       "disk": 160,
+>       "price_monthly": 56,
+>       "price_hourly": 0.08333,
+>       "regions": [
+>         "ams3",
+>         "atl1",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 5,
+>       "description": "Basic AMD",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 160,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-4vcpu-8gb-amd",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "Development",
+>       "MERN",
+>       "Sonarqube"
+>     ],
+>     "vcpus": 4,
+>     "volume_ids": [],
+>     "vpc_uuid": "d1bdf644-562f-4871-9979-89b396bf192f"
+>   },
+>   {
+>     "backup_ids": [
+>       234756336,
+>       233834104,
+>       232895785,
+>       231942750
+>     ],
+>     "created_at": "2026-03-18T05:23:26Z",
+>     "disk": 160,
+>     "features": [
+>       "backups",
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 559106894,
+>     "image": {
+>       "id": 199996745,
+>       "name": "12 x64",
+>       "type": "base",
+>       "distribution": "Debian",
+>       "slug": "debian-12-x64",
+>       "public": true,
+>       "regions": [
+>         "nyc3",
+>         "ams2",
+>         "ams3",
+>         "atl1",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "mem1",
+>         "mkc1",
+>         "nyc1",
+>         "nyc2",
+>         "ric1",
+>         "sfo1",
+>         "sfo2",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "min_disk_size": 7,
+>       "size_gigabytes": 3.22,
+>       "created_at": "2025-09-15T19:13:31Z",
+>       "description": "Debian 12 Image",
+>       "status": "available"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 8192,
+>     "name": "wazuh-main",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "64.227.162.31",
+>           "netmask": "255.255.240.0",
+>           "gateway": "64.227.160.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.16.4",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.16.1",
+>           "type": "private"
+>         }
+>       ]
+>     },
+>     "next_backup_window": {
+>       "start": "2026-07-05T20:00:00Z",
+>       "end": "2026-07-06T00:00:00Z"
+>     },
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-4vcpu-8gb-amd",
+>       "memory": 8192,
+>       "vcpus": 4,
+>       "disk": 160,
+>       "price_monthly": 56,
+>       "price_hourly": 0.08333,
+>       "regions": [
+>         "ams3",
+>         "atl1",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 5,
+>       "description": "Basic AMD",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 160,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-4vcpu-8gb-amd",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "Wazuh",
+>       "SEIM",
+>       "XDR",
+>       "Devops",
+>       "Security"
+>     ],
+>     "vcpus": 4,
+>     "volume_ids": [],
+>     "vpc_uuid": "a477a8bc-0f5e-48ea-91a6-276632603cc0"
+>   },
+>   {
+>     "backup_ids": [],
+>     "created_at": "2026-03-18T09:26:51Z",
+>     "disk": 80,
+>     "features": [
+>       "droplet_agent",
+>       "private_networking"
+>     ],
+>     "id": 559148044,
+>     "image": {
+>       "id": 221107331,
+>       "name": "mimir-c1-1773825827686",
+>       "type": "snapshot",
+>       "distribution": "Debian",
+>       "min_disk_size": 80,
+>       "size_gigabytes": 4.88,
+>       "created_at": "2026-03-18T09:23:51Z",
+>       "status": "deleted"
+>     },
+>     "kernel": null,
+>     "locked": false,
+>     "memory": 4096,
+>     "name": "Mimir-c1",
+>     "networks": {
+>       "v4": [
+>         {
+>           "ip_address": "159.89.160.74",
+>           "netmask": "255.255.240.0",
+>           "gateway": "159.89.160.1",
+>           "type": "public"
+>         },
+>         {
+>           "ip_address": "10.122.16.5",
+>           "netmask": "255.255.240.0",
+>           "gateway": "10.122.16.1",
+>           "type": "private"
+>         }
+>       ]
+>     },
+>     "next_backup_window": null,
+>     "region": {
+>       "slug": "blr1",
+>       "name": "Bangalore 1",
+>       "sizes": [
+>         "s-1vcpu-512mb-10gb",
+>         "s-1vcpu-1gb",
+>         "s-1vcpu-1gb-amd",
+>         "s-1vcpu-1gb-intel",
+>         "s-1vcpu-1gb-35gb-intel",
+>         "s-1vcpu-2gb",
+>         "s-1vcpu-2gb-amd",
+>         "s-1vcpu-2gb-intel",
+>         "s-1vcpu-2gb-70gb-intel",
+>         "s-2vcpu-2gb",
+>         "s-2vcpu-2gb-amd",
+>         "s-2vcpu-2gb-intel",
+>         "s-2vcpu-2gb-90gb-intel",
+>         "s-2vcpu-4gb",
+>         "s-2vcpu-4gb-amd",
+>         "s-2vcpu-4gb-intel",
+>         "s-2vcpu-4gb-120gb-intel",
+>         "s-2vcpu-8gb-amd",
+>         "c-2",
+>         "c2-2vcpu-4gb",
+>         "s-2vcpu-8gb-160gb-intel",
+>         "s-4vcpu-8gb",
+>         "s-4vcpu-8gb-amd",
+>         "s-4vcpu-8gb-intel",
+>         "c5-2vcpu-4gb",
+>         "g-2vcpu-8gb",
+>         "s-4vcpu-8gb-240gb-intel",
+>         "gd-2vcpu-8gb",
+>         "g-2vcpu-8gb-intel",
+>         "gd-2vcpu-8gb-intel",
+>         "s-4vcpu-16gb-amd",
+>         "m-2vcpu-16gb",
+>         "c-4",
+>         "g6_5-2vcpu-8gb",
+>         "g5_5-2vcpu-8gb-intel",
+>         "c2-4vcpu-8gb",
+>         "s-4vcpu-16gb-320gb-intel",
+>         "s-8vcpu-16gb",
+>         "m-2vcpu-16gb-intel",
+>         "m3-2vcpu-16gb",
+>         "c-4-intel",
+>         "m3-2vcpu-16gb-intel",
+>         "s-8vcpu-16gb-amd",
+>         "s-8vcpu-16gb-intel",
+>         "c2-4vcpu-8gb-intel",
+>         "c5-4vcpu-8gb",
+>         "g-4vcpu-16gb",
+>         "s-8vcpu-16gb-480gb-intel",
+>         "so-2vcpu-16gb-intel",
+>         "so-2vcpu-16gb",
+>         "m6-2vcpu-16gb",
+>         "gd-4vcpu-16gb",
+>         "so1_5-2vcpu-16gb-intel",
+>         "g-4vcpu-16gb-intel",
+>         "gd-4vcpu-16gb-intel",
+>         "c5-4vcpu-8gb-intel",
+>         "so1_5-2vcpu-16gb",
+>         "s-8vcpu-32gb-amd",
+>         "m-4vcpu-32gb",
+>         "c-8",
+>         "g6_5-4vcpu-16gb",
+>         "g5_5-4vcpu-16gb-intel",
+>         "c2-8vcpu-16gb",
+>         "s-8vcpu-32gb-640gb-intel",
+>         "m-4vcpu-32gb-intel",
+>         "m3-4vcpu-32gb",
+>         "c-8-intel",
+>         "m3-4vcpu-32gb-intel",
+>         "c2-8vcpu-16gb-intel",
+>         "c5-8vcpu-16gb",
+>         "g-8vcpu-32gb",
+>         "so-4vcpu-32gb-intel",
+>         "so-4vcpu-32gb",
+>         "m6-4vcpu-32gb",
+>         "gd-8vcpu-32gb",
+>         "so1_5-4vcpu-32gb-intel",
+>         "g-8vcpu-32gb-intel",
+>         "gd-8vcpu-32gb-intel",
+>         "c5-8vcpu-16gb-intel",
+>         "so1_5-4vcpu-32gb",
+>         "m-8vcpu-64gb",
+>         "c-16",
+>         "g6_5-8vcpu-32gb",
+>         "g5_5-8vcpu-32gb-intel",
+>         "c2-16vcpu-32gb",
+>         "m-8vcpu-64gb-intel",
+>         "m3-8vcpu-64gb",
+>         "c-16-intel",
+>         "m3-8vcpu-64gb-intel",
+>         "c2-16vcpu-32gb-intel",
+>         "c5-16vcpu-32gb",
+>         "g-16vcpu-64gb",
+>         "so-8vcpu-64gb-intel",
+>         "so-8vcpu-64gb",
+>         "m6-8vcpu-64gb",
+>         "gd-16vcpu-64gb",
+>         "so1_5-8vcpu-64gb-intel",
+>         "g-16vcpu-64gb-intel",
+>         "gd-16vcpu-64gb-intel",
+>         "c5-16vcpu-32gb-intel",
+>         "so1_5-8vcpu-64gb",
+>         "m-16vcpu-128gb",
+>         "c-32",
+>         "g6_5-16vcpu-64gb",
+>         "g5_5-16vcpu-64gb-intel",
+>         "c2-32vcpu-64gb",
+>         "m-16vcpu-128gb-intel",
+>         "m3-16vcpu-128gb",
+>         "c-32-intel",
+>         "m3-16vcpu-128gb-intel",
+>         "c2-32vcpu-64gb-intel",
+>         "c5-32vcpu-64gb",
+>         "c-48",
+>         "m-24vcpu-192gb",
+>         "g-32vcpu-128gb",
+>         "so-16vcpu-128gb-intel",
+>         "so-16vcpu-128gb",
+>         "m6-16vcpu-128gb",
+>         "gd-32vcpu-128gb",
+>         "so1_5-16vcpu-128gb-intel",
+>         "c2-48vcpu-96gb",
+>         "m-24vcpu-192gb-intel",
+>         "g-32vcpu-128gb-intel",
+>         "m3-24vcpu-192gb",
+>         "g-40vcpu-160gb",
+>         "gd-32vcpu-128gb-intel",
+>         "c5-32vcpu-64gb-intel",
+>         "so1_5-16vcpu-128gb",
+>         "c-48-intel",
+>         "m3-24vcpu-192gb-intel",
+>         "m-32vcpu-256gb",
+>         "gd-40vcpu-160gb",
+>         "g6_5-32vcpu-128gb",
+>         "c2-48vcpu-96gb-intel",
+>         "g5_5-32vcpu-128gb-intel",
+>         "c5-48vcpu-96gb",
+>         "so-24vcpu-192gb-intel",
+>         "so-24vcpu-192gb",
+>         "m6-24vcpu-192gb",
+>         "m-32vcpu-256gb-intel",
+>         "c-60-intel",
+>         "m3-32vcpu-256gb",
+>         "so1_5-24vcpu-192gb-intel",
+>         "m3-32vcpu-256gb-intel",
+>         "g6_5-40vcpu-160gb",
+>         "g-48vcpu-192gb-intel",
+>         "c2-60vcpu-120gb-intel",
+>         "gd-48vcpu-192gb-intel",
+>         "c5-48vcpu-96gb-intel",
+>         "so1_5-24vcpu-192gb",
+>         "so-32vcpu-256gb-intel",
+>         "so-32vcpu-256gb",
+>         "m6-32vcpu-256gb",
+>         "g5_5-48vcpu-192gb-intel",
+>         "so1_5-32vcpu-256gb-intel",
+>         "m-48vcpu-384gb-intel",
+>         "c5-60vcpu-120gb-intel",
+>         "so1_5-32vcpu-256gb",
+>         "m3-48vcpu-384gb-intel",
+>         "g5_5-60vcpu-240gb-intel"
+>       ],
+>       "available": true,
+>       "features": [
+>         "backups",
+>         "ipv6",
+>         "metadata",
+>         "install_agent",
+>         "storage",
+>         "image_transfer"
+>       ]
+>     },
+>     "size": {
+>       "slug": "s-2vcpu-4gb-amd",
+>       "memory": 4096,
+>       "vcpus": 2,
+>       "disk": 80,
+>       "price_monthly": 28,
+>       "price_hourly": 0.04167,
+>       "regions": [
+>         "ams3",
+>         "atl1",
+>         "blr1",
+>         "fra1",
+>         "lon1",
+>         "nyc1",
+>         "nyc2",
+>         "nyc3",
+>         "sfo3",
+>         "sgp1",
+>         "syd1",
+>         "tor1"
+>       ],
+>       "available": true,
+>       "transfer": 4,
+>       "description": "Basic AMD",
+>       "disk_info": [
+>         {
+>           "type": "local",
+>           "size": {
+>             "amount": 80,
+>             "unit": "gib"
+>           }
+>         }
+>       ]
+>     },
+>     "size_slug": "s-2vcpu-4gb-amd",
+>     "snapshot_ids": [],
+>     "status": "active",
+>     "tags": [
+>       "Monitoring"
+>     ],
+>     "vcpus": 2,
+>     "volume_ids": [],
+>     "vpc_uuid": "a477a8bc-0f5e-48ea-91a6-276632603cc0"
+>   }
+> ]
+> ```
+>
+> MCP tool call
+>
+> codex_apps.digitalocean.size-list
+>
+> ```json
+> {
+>   "Page": 1,
+>   "PerPage": 200
+> }
+> ```
+>
+> ```text
+> [
+>   {
+>     "available": true,
+>     "disk": 10,
+>     "memory": 512,
+>     "price_hourly": 0.00595,
+>     "price_monthly": 4,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-512mb-10gb",
+>     "transfer": 0.5,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 25,
+>     "memory": 1024,
+>     "price_hourly": 0.00893,
+>     "price_monthly": 6,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-1gb",
+>     "transfer": 1,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 25,
+>     "memory": 1024,
+>     "price_hourly": 0.01042,
+>     "price_monthly": 7,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-1gb-amd",
+>     "transfer": 1,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 25,
+>     "memory": 1024,
+>     "price_hourly": 0.01042,
+>     "price_monthly": 7,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-1gb-intel",
+>     "transfer": 1,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 35,
+>     "memory": 1024,
+>     "price_hourly": 0.0119,
+>     "price_monthly": 8,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-1gb-35gb-intel",
+>     "transfer": 1,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 2048,
+>     "price_hourly": 0.01786,
+>     "price_monthly": 12,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-2gb",
+>     "transfer": 2,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 2048,
+>     "price_hourly": 0.02083,
+>     "price_monthly": 14,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-2gb-amd",
+>     "transfer": 2,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 2048,
+>     "price_hourly": 0.02083,
+>     "price_monthly": 14,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-2gb-intel",
+>     "transfer": 2,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 70,
+>     "memory": 2048,
+>     "price_hourly": 0.02381,
+>     "price_monthly": 16,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-1vcpu-2gb-70gb-intel",
+>     "transfer": 2,
+>     "vcpus": 1
+>   },
+>   {
+>     "available": true,
+>     "disk": 60,
+>     "memory": 2048,
+>     "price_hourly": 0.02679,
+>     "price_monthly": 18,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-2gb",
+>     "transfer": 3,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 60,
+>     "memory": 2048,
+>     "price_hourly": 0.03125,
+>     "price_monthly": 21,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-2gb-amd",
+>     "transfer": 3,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 60,
+>     "memory": 2048,
+>     "price_hourly": 0.03125,
+>     "price_monthly": 21,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-2gb-intel",
+>     "transfer": 3,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 90,
+>     "memory": 2048,
+>     "price_hourly": 0.03571,
+>     "price_monthly": 24,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-2gb-90gb-intel",
+>     "transfer": 3,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 80,
+>     "memory": 4096,
+>     "price_hourly": 0.03571,
+>     "price_monthly": 24,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-4gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 80,
+>     "memory": 4096,
+>     "price_hourly": 0.04167,
+>     "price_monthly": 28,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-4gb-amd",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 80,
+>     "memory": 4096,
+>     "price_hourly": 0.04167,
+>     "price_monthly": 28,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-4gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 120,
+>     "memory": 4096,
+>     "price_hourly": 0.04762,
+>     "price_monthly": 32,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-4gb-120gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 8192,
+>     "price_hourly": 0.0625,
+>     "price_monthly": 42,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-8gb-amd",
+>     "transfer": 5,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 25,
+>     "memory": 4096,
+>     "price_hourly": 0.0625,
+>     "price_monthly": 42,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c-2",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 4096,
+>     "price_hourly": 0.06994,
+>     "price_monthly": 47,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c2-2vcpu-4gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 160,
+>     "memory": 8192,
+>     "price_hourly": 0.07143,
+>     "price_monthly": 48,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-2vcpu-8gb-160gb-intel",
+>     "transfer": 5,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 160,
+>     "memory": 8192,
+>     "price_hourly": 0.07143,
+>     "price_monthly": 48,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-4vcpu-8gb",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 160,
+>     "memory": 8192,
+>     "price_hourly": 0.08333,
+>     "price_monthly": 56,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-4vcpu-8gb-amd",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 160,
+>     "memory": 8192,
+>     "price_hourly": 0.08333,
+>     "price_monthly": 56,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-4vcpu-8gb-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 125,
+>     "memory": 4096,
+>     "price_hourly": 0.09226,
+>     "price_monthly": 62,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c5-2vcpu-4gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 25,
+>     "memory": 8192,
+>     "price_hourly": 0.09375,
+>     "price_monthly": 63,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g-2vcpu-8gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 240,
+>     "memory": 8192,
+>     "price_hourly": 0.09524,
+>     "price_monthly": 64,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-4vcpu-8gb-240gb-intel",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 8192,
+>     "price_hourly": 0.10119,
+>     "price_monthly": 68,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "gd-2vcpu-8gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 30,
+>     "memory": 8192,
+>     "price_hourly": 0.1131,
+>     "price_monthly": 76,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-2vcpu-8gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 60,
+>     "memory": 8192,
+>     "price_hourly": 0.11756,
+>     "price_monthly": 79,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-2vcpu-8gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 16384,
+>     "price_hourly": 0.125,
+>     "price_monthly": 84,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-4vcpu-16gb-amd",
+>     "transfer": 8,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 16384,
+>     "price_hourly": 0.125,
+>     "price_monthly": 84,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m-2vcpu-16gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 8192,
+>     "price_hourly": 0.125,
+>     "price_monthly": 84,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c-4",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 163,
+>     "memory": 8192,
+>     "price_hourly": 0.13482,
+>     "price_monthly": 90.6,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g6_5-2vcpu-8gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 165,
+>     "memory": 8192,
+>     "price_hourly": 0.1372,
+>     "price_monthly": 92.2,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-2vcpu-8gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 8192,
+>     "price_hourly": 0.13988,
+>     "price_monthly": 94,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c2-4vcpu-8gb",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 320,
+>     "memory": 16384,
+>     "price_hourly": 0.14286,
+>     "price_monthly": 96,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-4vcpu-16gb-320gb-intel",
+>     "transfer": 8,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 320,
+>     "memory": 16384,
+>     "price_hourly": 0.14286,
+>     "price_monthly": 96,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-8vcpu-16gb",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 16384,
+>     "price_hourly": 0.14732,
+>     "price_monthly": 99,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-2vcpu-16gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 150,
+>     "memory": 16384,
+>     "price_hourly": 0.15476,
+>     "price_monthly": 104,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m3-2vcpu-16gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 8192,
+>     "price_hourly": 0.1622,
+>     "price_monthly": 109,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c-4-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 150,
+>     "memory": 16384,
+>     "price_hourly": 0.16369,
+>     "price_monthly": 110,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-2vcpu-16gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 320,
+>     "memory": 16384,
+>     "price_hourly": 0.16667,
+>     "price_monthly": 112,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-8vcpu-16gb-amd",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 320,
+>     "memory": 16384,
+>     "price_hourly": 0.16667,
+>     "price_monthly": 112,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-8vcpu-16gb-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 8192,
+>     "price_hourly": 0.18155,
+>     "price_monthly": 122,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c2-4vcpu-8gb-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 250,
+>     "memory": 8192,
+>     "price_hourly": 0.18452,
+>     "price_monthly": 124,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c5-4vcpu-8gb",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 50,
+>     "memory": 16384,
+>     "price_hourly": 0.1875,
+>     "price_monthly": 126,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g-4vcpu-16gb",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 480,
+>     "memory": 16384,
+>     "price_hourly": 0.19048,
+>     "price_monthly": 128,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-8vcpu-16gb-480gb-intel",
+>     "transfer": 9,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 300,
+>     "memory": 16384,
+>     "price_hourly": 0.19494,
+>     "price_monthly": 131,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-2vcpu-16gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 300,
+>     "memory": 16384,
+>     "price_hourly": 0.19494,
+>     "price_monthly": 131,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so-2vcpu-16gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 300,
+>     "memory": 16384,
+>     "price_hourly": 0.19494,
+>     "price_monthly": 131,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m6-2vcpu-16gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 16384,
+>     "price_hourly": 0.20238,
+>     "price_monthly": 136,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "gd-4vcpu-16gb",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 450,
+>     "memory": 16384,
+>     "price_hourly": 0.20685,
+>     "price_monthly": 139,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-2vcpu-16gb-intel",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 60,
+>     "memory": 16384,
+>     "price_hourly": 0.2247,
+>     "price_monthly": 151,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-4vcpu-16gb-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 120,
+>     "memory": 16384,
+>     "price_hourly": 0.23512,
+>     "price_monthly": 158,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-4vcpu-16gb-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 250,
+>     "memory": 8192,
+>     "price_hourly": 0.23958,
+>     "price_monthly": 161,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c5-4vcpu-8gb-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 450,
+>     "memory": 16384,
+>     "price_hourly": 0.24256,
+>     "price_monthly": 163,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-2vcpu-16gb",
+>     "transfer": 4,
+>     "vcpus": 2
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 32768,
+>     "price_hourly": 0.25,
+>     "price_monthly": 168,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-8vcpu-32gb-amd",
+>     "transfer": 10,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 32768,
+>     "price_hourly": 0.25,
+>     "price_monthly": 168,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m-4vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 16384,
+>     "price_hourly": 0.25,
+>     "price_monthly": 168,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c-8",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 325,
+>     "memory": 16384,
+>     "price_hourly": 0.26935,
+>     "price_monthly": 181,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g6_5-4vcpu-16gb",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 330,
+>     "memory": 16384,
+>     "price_hourly": 0.27292,
+>     "price_monthly": 183.4,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-4vcpu-16gb-intel",
+>     "transfer": 5,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 16384,
+>     "price_hourly": 0.27976,
+>     "price_monthly": 188,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c2-8vcpu-16gb",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 640,
+>     "memory": 32768,
+>     "price_hourly": 0.28571,
+>     "price_monthly": 192,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "s-8vcpu-32gb-640gb-intel",
+>     "transfer": 10,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 32768,
+>     "price_hourly": 0.29464,
+>     "price_monthly": 198,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-4vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 300,
+>     "memory": 32768,
+>     "price_hourly": 0.30952,
+>     "price_monthly": 208,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m3-4vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 16384,
+>     "price_hourly": 0.3244,
+>     "price_monthly": 218,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c-8-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 300,
+>     "memory": 32768,
+>     "price_hourly": 0.32738,
+>     "price_monthly": 220,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-4vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 16384,
+>     "price_hourly": 0.3631,
+>     "price_monthly": 244,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c2-8vcpu-16gb-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 500,
+>     "memory": 16384,
+>     "price_hourly": 0.36905,
+>     "price_monthly": 248,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c5-8vcpu-16gb",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 100,
+>     "memory": 32768,
+>     "price_hourly": 0.375,
+>     "price_monthly": 252,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g-8vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 32768,
+>     "price_hourly": 0.38988,
+>     "price_monthly": 262,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-4vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 32768,
+>     "price_hourly": 0.38988,
+>     "price_monthly": 262,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so-4vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 32768,
+>     "price_hourly": 0.38988,
+>     "price_monthly": 262,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m6-4vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 32768,
+>     "price_hourly": 0.40476,
+>     "price_monthly": 272,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "gd-8vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 900,
+>     "memory": 32768,
+>     "price_hourly": 0.41369,
+>     "price_monthly": 278,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-4vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 120,
+>     "memory": 32768,
+>     "price_hourly": 0.4494,
+>     "price_monthly": 302,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-8vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 240,
+>     "memory": 32768,
+>     "price_hourly": 0.47173,
+>     "price_monthly": 317,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-8vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 500,
+>     "memory": 16384,
+>     "price_hourly": 0.47917,
+>     "price_monthly": 322,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c5-8vcpu-16gb-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 900,
+>     "memory": 32768,
+>     "price_hourly": 0.48512,
+>     "price_monthly": 326,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-4vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 4
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 65536,
+>     "price_hourly": 0.5,
+>     "price_monthly": 336,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m-8vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 32768,
+>     "price_hourly": 0.5,
+>     "price_monthly": 336,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c-16",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 650,
+>     "memory": 32768,
+>     "price_hourly": 0.53869,
+>     "price_monthly": 362,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g6_5-8vcpu-32gb",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 660,
+>     "memory": 32768,
+>     "price_hourly": 0.54583,
+>     "price_monthly": 366.8,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-8vcpu-32gb-intel",
+>     "transfer": 6,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 32768,
+>     "price_hourly": 0.55952,
+>     "price_monthly": 376,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c2-16vcpu-32gb",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 65536,
+>     "price_hourly": 0.58929,
+>     "price_monthly": 396,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-8vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 65536,
+>     "price_hourly": 0.61905,
+>     "price_monthly": 416,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m3-8vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 32768,
+>     "price_hourly": 0.6503,
+>     "price_monthly": 437,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c-16-intel",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 65536,
+>     "price_hourly": 0.65476,
+>     "price_monthly": 440,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-8vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 32768,
+>     "price_hourly": 0.72768,
+>     "price_monthly": 489,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c2-16vcpu-32gb-intel",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1000,
+>     "memory": 32768,
+>     "price_hourly": 0.7381,
+>     "price_monthly": 496,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c5-16vcpu-32gb",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 200,
+>     "memory": 65536,
+>     "price_hourly": 0.75,
+>     "price_monthly": 504,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g-16vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 65536,
+>     "price_hourly": 0.77976,
+>     "price_monthly": 524,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-8vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 65536,
+>     "price_hourly": 0.77976,
+>     "price_monthly": 524,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so-8vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 65536,
+>     "price_hourly": 0.77976,
+>     "price_monthly": 524,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m6-8vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 65536,
+>     "price_hourly": 0.80952,
+>     "price_monthly": 544,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "gd-16vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1800,
+>     "memory": 65536,
+>     "price_hourly": 0.82738,
+>     "price_monthly": 556,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-8vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 500,
+>     "memory": 32768,
+>     "price_hourly": 0.76,
+>     "price_monthly": 565.44,
+>     "regions": [],
+>     "slug": "gpu-4000adax1-20gb",
+>     "transfer": 10,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 240,
+>     "memory": 65536,
+>     "price_hourly": 0.9003,
+>     "price_monthly": 605,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-16vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 480,
+>     "memory": 65536,
+>     "price_hourly": 0.94345,
+>     "price_monthly": 634,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-16vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1000,
+>     "memory": 32768,
+>     "price_hourly": 0.95982,
+>     "price_monthly": 645,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c5-16vcpu-32gb-intel",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1800,
+>     "memory": 65536,
+>     "price_hourly": 0.97024,
+>     "price_monthly": 652,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-8vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 131072,
+>     "price_hourly": 1,
+>     "price_monthly": 672,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m-16vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 65536,
+>     "price_hourly": 1,
+>     "price_monthly": 672,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c-32",
+>     "transfer": 9,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 1300,
+>     "memory": 65536,
+>     "price_hourly": 1.07738,
+>     "price_monthly": 724,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g6_5-16vcpu-64gb",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1320,
+>     "memory": 65536,
+>     "price_hourly": 1.09315,
+>     "price_monthly": 734.6,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-16vcpu-64gb-intel",
+>     "transfer": 7,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 800,
+>     "memory": 65536,
+>     "price_hourly": 1.11905,
+>     "price_monthly": 752,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c2-32vcpu-64gb",
+>     "transfer": 9,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 131072,
+>     "price_hourly": 1.17857,
+>     "price_monthly": 792,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-16vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 131072,
+>     "price_hourly": 1.2381,
+>     "price_monthly": 832,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m3-16vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 65536,
+>     "price_hourly": 1.3006,
+>     "price_monthly": 874,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c-32-intel",
+>     "transfer": 9,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 131072,
+>     "price_hourly": 1.30952,
+>     "price_monthly": 880,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-16vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 800,
+>     "memory": 65536,
+>     "price_hourly": 1.45536,
+>     "price_monthly": 978,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c2-32vcpu-64gb-intel",
+>     "transfer": 9,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 2000,
+>     "memory": 65536,
+>     "price_hourly": 1.47619,
+>     "price_monthly": 992,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "c5-32vcpu-64gb",
+>     "transfer": 9,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 98304,
+>     "price_hourly": 1.5,
+>     "price_monthly": 1008,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1"
+>     ],
+>     "slug": "c-48",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 196608,
+>     "price_hourly": 1.5,
+>     "price_monthly": 1008,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m-24vcpu-192gb",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 400,
+>     "memory": 131072,
+>     "price_hourly": 1.5,
+>     "price_monthly": 1008,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g-32vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 2400,
+>     "memory": 131072,
+>     "price_hourly": 1.55952,
+>     "price_monthly": 1048,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-16vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 2400,
+>     "memory": 131072,
+>     "price_hourly": 1.55952,
+>     "price_monthly": 1048,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so-16vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 2400,
+>     "memory": 131072,
+>     "price_hourly": 1.55952,
+>     "price_monthly": 1048,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m6-16vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 800,
+>     "memory": 131072,
+>     "price_hourly": 1.61905,
+>     "price_monthly": 1088,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "gd-32vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 3600,
+>     "memory": 131072,
+>     "price_hourly": 1.65476,
+>     "price_monthly": 1112,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-16vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 98304,
+>     "price_hourly": 1.67857,
+>     "price_monthly": 1128,
+>     "regions": [
+>       "blr1",
+>       "lon1",
+>       "nyc1",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1"
+>     ],
+>     "slug": "c2-48vcpu-96gb",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 500,
+>     "memory": 65536,
+>     "price_hourly": 1.57,
+>     "price_monthly": 1168.08,
+>     "regions": [],
+>     "slug": "gpu-l40sx1-48gb",
+>     "transfer": 10,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 500,
+>     "memory": 65536,
+>     "price_hourly": 1.57,
+>     "price_monthly": 1168.08,
+>     "regions": [],
+>     "slug": "gpu-6000adax1-48gb",
+>     "transfer": 10,
+>     "vcpus": 8
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 196608,
+>     "price_hourly": 1.76786,
+>     "price_monthly": 1188,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-24vcpu-192gb-intel",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 480,
+>     "memory": 131072,
+>     "price_hourly": 1.8006,
+>     "price_monthly": 1210,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-32vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 1800,
+>     "memory": 196608,
+>     "price_hourly": 1.85714,
+>     "price_monthly": 1248,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m3-24vcpu-192gb",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 500,
+>     "memory": 163840,
+>     "price_hourly": 1.875,
+>     "price_monthly": 1260,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g-40vcpu-160gb",
+>     "transfer": 9,
+>     "vcpus": 40
+>   },
+>   {
+>     "available": true,
+>     "disk": 960,
+>     "memory": 131072,
+>     "price_hourly": 1.8869,
+>     "price_monthly": 1268,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-32vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 2000,
+>     "memory": 65536,
+>     "price_hourly": 1.91964,
+>     "price_monthly": 1290,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c5-32vcpu-64gb-intel",
+>     "transfer": 9,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 3600,
+>     "memory": 131072,
+>     "price_hourly": 1.94048,
+>     "price_monthly": 1304,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-16vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 16
+>   },
+>   {
+>     "available": true,
+>     "disk": 600,
+>     "memory": 98304,
+>     "price_hourly": 1.9494,
+>     "price_monthly": 1310,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c-48-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 1800,
+>     "memory": 196608,
+>     "price_hourly": 1.96429,
+>     "price_monthly": 1320,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-24vcpu-192gb-intel",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 800,
+>     "memory": 262144,
+>     "price_hourly": 2,
+>     "price_monthly": 1344,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m-32vcpu-256gb",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 1000,
+>     "memory": 163840,
+>     "price_hourly": 2.02381,
+>     "price_monthly": 1360,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "gd-40vcpu-160gb",
+>     "transfer": 9,
+>     "vcpus": 40
+>   },
+>   {
+>     "available": true,
+>     "disk": 2600,
+>     "memory": 131072,
+>     "price_hourly": 2.15476,
+>     "price_monthly": 1448,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g6_5-32vcpu-128gb",
+>     "transfer": 8,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 98304,
+>     "price_hourly": 2.18155,
+>     "price_monthly": 1466,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c2-48vcpu-96gb-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 2640,
+>     "memory": 131072,
+>     "price_hourly": 2.18631,
+>     "price_monthly": 1469.2,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-32vcpu-128gb-intel",
+>     "transfer": 8,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 720,
+>     "memory": 245760,
+>     "price_hourly": 1.99,
+>     "price_monthly": 1480.56,
+>     "regions": [],
+>     "slug": "gpu-mi300x1-192gb",
+>     "transfer": 15,
+>     "vcpus": 20
+>   },
+>   {
+>     "available": true,
+>     "disk": 3000,
+>     "memory": 98304,
+>     "price_hourly": 2.21429,
+>     "price_monthly": 1488,
+>     "regions": [
+>       "blr1",
+>       "lon1",
+>       "sgp1"
+>     ],
+>     "slug": "c5-48vcpu-96gb",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 3600,
+>     "memory": 196608,
+>     "price_hourly": 2.33929,
+>     "price_monthly": 1572,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-24vcpu-192gb-intel",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 3600,
+>     "memory": 196608,
+>     "price_hourly": 2.33929,
+>     "price_monthly": 1572,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so-24vcpu-192gb",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 3600,
+>     "memory": 196608,
+>     "price_hourly": 2.33929,
+>     "price_monthly": 1572,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m6-24vcpu-192gb",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 800,
+>     "memory": 262144,
+>     "price_hourly": 2.35714,
+>     "price_monthly": 1584,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-32vcpu-256gb-intel",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 750,
+>     "memory": 122880,
+>     "price_hourly": 2.43899,
+>     "price_monthly": 1639,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c-60-intel",
+>     "transfer": 12,
+>     "vcpus": 60
+>   },
+>   {
+>     "available": true,
+>     "disk": 2400,
+>     "memory": 262144,
+>     "price_hourly": 2.47619,
+>     "price_monthly": 1664,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m3-32vcpu-256gb",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 5400,
+>     "memory": 196608,
+>     "price_hourly": 2.48214,
+>     "price_monthly": 1668,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-24vcpu-192gb-intel",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 2400,
+>     "memory": 262144,
+>     "price_hourly": 2.61905,
+>     "price_monthly": 1760,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-32vcpu-256gb-intel",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 3250,
+>     "memory": 163840,
+>     "price_hourly": 2.69345,
+>     "price_monthly": 1810,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "g6_5-40vcpu-160gb",
+>     "transfer": 9,
+>     "vcpus": 40
+>   },
+>   {
+>     "available": true,
+>     "disk": 720,
+>     "memory": 196608,
+>     "price_hourly": 2.6994,
+>     "price_monthly": 1814,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-48vcpu-192gb-intel",
+>     "transfer": 9,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 1500,
+>     "memory": 122880,
+>     "price_hourly": 2.72917,
+>     "price_monthly": 1834,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c2-60vcpu-120gb-intel",
+>     "transfer": 12,
+>     "vcpus": 60
+>   },
+>   {
+>     "available": true,
+>     "disk": 1440,
+>     "memory": 196608,
+>     "price_hourly": 2.82887,
+>     "price_monthly": 1901,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-48vcpu-192gb-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 3000,
+>     "memory": 98304,
+>     "price_hourly": 2.87798,
+>     "price_monthly": 1934,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c5-48vcpu-96gb-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 5400,
+>     "memory": 196608,
+>     "price_hourly": 2.91071,
+>     "price_monthly": 1956,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-24vcpu-192gb",
+>     "transfer": 9,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 4800,
+>     "memory": 262144,
+>     "price_hourly": 3.11905,
+>     "price_monthly": 2096,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-32vcpu-256gb-intel",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 4800,
+>     "memory": 262144,
+>     "price_hourly": 3.11905,
+>     "price_monthly": 2096,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so-32vcpu-256gb",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 4800,
+>     "memory": 262144,
+>     "price_hourly": 3.11905,
+>     "price_monthly": 2096,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "m6-32vcpu-256gb",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 3960,
+>     "memory": 196608,
+>     "price_hourly": 3.27798,
+>     "price_monthly": 2202.8,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-48vcpu-192gb-intel",
+>     "transfer": 9,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 7200,
+>     "memory": 262144,
+>     "price_hourly": 3.30952,
+>     "price_monthly": 2224,
+>     "regions": [
+>       "ams3",
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-32vcpu-256gb-intel",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 900,
+>     "memory": 245760,
+>     "price_hourly": 3.37649,
+>     "price_monthly": 2269,
+>     "regions": [
+>       "atl1",
+>       "fra1",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g-60vcpu-240gb-intel",
+>     "transfer": 10,
+>     "vcpus": 60
+>   },
+>   {
+>     "available": true,
+>     "disk": 1200,
+>     "memory": 393216,
+>     "price_hourly": 3.53571,
+>     "price_monthly": 2376,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m-48vcpu-384gb-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 1800,
+>     "memory": 245760,
+>     "price_hourly": 3.53869,
+>     "price_monthly": 2378,
+>     "regions": [
+>       "atl1",
+>       "fra1",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "gd-60vcpu-240gb-intel",
+>     "transfer": 10,
+>     "vcpus": 60
+>   },
+>   {
+>     "available": true,
+>     "disk": 3750,
+>     "memory": 122880,
+>     "price_hourly": 3.5997,
+>     "price_monthly": 2419,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "c5-60vcpu-120gb-intel",
+>     "transfer": 12,
+>     "vcpus": 60
+>   },
+>   {
+>     "available": true,
+>     "disk": 720,
+>     "memory": 245760,
+>     "price_hourly": 3.39,
+>     "price_monthly": 2522.16,
+>     "regions": [],
+>     "slug": "gpu-h100x1-80gb",
+>     "transfer": 15,
+>     "vcpus": 20
+>   },
+>   {
+>     "available": true,
+>     "disk": 720,
+>     "memory": 245760,
+>     "price_hourly": 3.44,
+>     "price_monthly": 2559.36,
+>     "regions": [],
+>     "slug": "gpu-h200x1-141gb",
+>     "transfer": 15,
+>     "vcpus": 24
+>   },
+>   {
+>     "available": true,
+>     "disk": 7200,
+>     "memory": 262144,
+>     "price_hourly": 3.88095,
+>     "price_monthly": 2608,
+>     "regions": [
+>       "ams3",
+>       "blr1",
+>       "fra1",
+>       "lon1",
+>       "nyc2",
+>       "nyc3",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "syd1",
+>       "tor1"
+>     ],
+>     "slug": "so1_5-32vcpu-256gb",
+>     "transfer": 10,
+>     "vcpus": 32
+>   },
+>   {
+>     "available": true,
+>     "disk": 3600,
+>     "memory": 393216,
+>     "price_hourly": 3.92857,
+>     "price_monthly": 2640,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "m3-48vcpu-384gb-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 4950,
+>     "memory": 245760,
+>     "price_hourly": 4.0997,
+>     "price_monthly": 2755,
+>     "regions": [
+>       "atl1",
+>       "blr1",
+>       "fra1",
+>       "nyc1",
+>       "nyc2",
+>       "nyc3",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "g5_5-60vcpu-240gb-intel",
+>     "transfer": 10,
+>     "vcpus": 60
+>   },
+>   {
+>     "available": true,
+>     "disk": 7000,
+>     "memory": 393216,
+>     "price_hourly": 4.67857,
+>     "price_monthly": 3144,
+>     "regions": [
+>       "atl1",
+>       "fra1",
+>       "ric1",
+>       "sfo2",
+>       "sfo3",
+>       "sgp1",
+>       "tor1"
+>     ],
+>     "slug": "so-48vcpu-384gb-intel",
+>     "transfer": 11,
+>     "vcpus": 48
+>   },
+>   {
+>     "available": true,
+>     "disk": 2046,
+>     "memory": 1966080,
+>     "price_hourly": 15.92,
+>     "price_monthly": 11844.48,
+>     "regions": [],
+>     "slug": "gpu-mi300x8-1536gb",
+>     "transfer": 60,
+>     "vcpus": 160
+>   },
+>   {
+>     "available": true,
+>     "disk": 2046,
+>     "memory": 1966080,
+>     "price_hourly": 23.92,
+>     "price_monthly": 17796.48,
+>     "regions": [],
+>     "slug": "gpu-h100x8-640gb",
+>     "transfer": 60,
+>     "vcpus": 160
+>   },
+>   {
+>     "available": true,
+>     "disk": 2046,
+>     "memory": 1966080,
+>     "price_hourly": 27.52,
+>     "price_monthly": 20474.88,
+>     "regions": [],
+>     "slug": "gpu-h200x8-1128gb",
+>     "transfer": 60,
+>     "vcpus": 192
+>   }
+> ]
+> ```
+>
+> </details>
+</details>
+
+Here are the running droplets I can see, along with their size plan:
+
+| Droplet | Status | Plan / Size slug | Plan type | Monthly price |
+|---|---:|---|---|---:|
+| `GITLAB-RUNNERS` | active | `s-2vcpu-2gb` | Basic | `$18/mo` |
+| `MERN-Development` | active | `s-2vcpu-4gb-amd` | Basic AMD | `$28/mo` |
+| `gitlab.webcase.me` | active | `s-2vcpu-4gb-120gb-intel` | Basic Intel | `$32/mo` |
+| `nmwg.webvoltz.com` | active | `c-2` | CPU-Optimized | `$42/mo` |
+| `Sonarqube-Server` | active | `s-4vcpu-8gb-amd` | Basic AMD | `$56/mo` |
+| `wazuh-main` | active | `s-4vcpu-8gb-amd` | Basic AMD | `$56/mo` |
+| `Mimir-c1` | active | `s-2vcpu-4gb-amd` | Basic AMD | `$28/mo` |
+
+If you want, I can also total the estimated monthly droplet spend and include backups/volumes as separate estimates.
+
+> [@app-6a3c278c93ac8191b29768648d63a754](plugin://app-6a3c278c93ac8191b29768648d63a754@openai-curated-remote) are this is the only services and the services which we have or other service are also purchase but not listed here ? If that's the case then you have to list here all of those services which we are currecly using
+
+<details><summary>2 previous messages</summary>
+
+> I’m checking the billing/invoice side too, because that’s the best way to confirm whether there are DO services beyond the droplets we already saw.
+>
+> <details><summary>Called 2 tools</summary>
+>
+> MCP tool call
+>
+> codex_apps.digitalocean.invoice-list
+>
+> ```json
+> {
+>   "Page": 1,
+>   "PerPage": 50
+> }
+> ```
+>
+> ```text
+> {
+>   "invoices": [
+>     {
+>       "invoice_uuid": "5f8a143d-d973-46c2-952a-e941c1834c38",
+>       "amount": "359.61",
+>       "invoice_period": "2026-06",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "84465d2b-8804-4de4-8a7d-4b1cf624871f",
+>       "amount": "361.12",
+>       "invoice_period": "2026-05",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "98684a2e-3826-4ecb-b6dc-94b1e3773c7c",
+>       "amount": "392.45",
+>       "invoice_period": "2026-04",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "49d1bdc1-4bfc-4d10-b59f-f5891ba69368",
+>       "amount": "330.10",
+>       "invoice_period": "2026-03",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "0afcfd00-9ca8-4ff6-bf76-779e2380a67d",
+>       "amount": "134.18",
+>       "invoice_period": "2026-02",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "0a43fe17-05e9-48f5-9c21-c669a41e5155",
+>       "amount": "134.05",
+>       "invoice_period": "2026-01",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "ad27c8fa-9c28-45d3-8f5c-eeb4af6223ea",
+>       "amount": "123.68",
+>       "invoice_period": "2025-12",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "64122a83-8943-49dd-bc20-813b61da4011",
+>       "amount": "115.26",
+>       "invoice_period": "2025-11",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "e784c983-ce6a-46e6-ab73-46ef40d0c654",
+>       "amount": "114.31",
+>       "invoice_period": "2025-10",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "e5c42b0c-1f6b-4f6f-a818-6a7d612868ee",
+>       "amount": "104.76",
+>       "invoice_period": "2025-09",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "00abcf54-9a64-4f00-9403-c85d906b023a",
+>       "amount": "86.71",
+>       "invoice_period": "2025-08",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "eeca901a-56ee-419c-b2ed-939658234818",
+>       "amount": "87.09",
+>       "invoice_period": "2025-07",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "37ae7f86-6ff0-4405-9103-90ebc2bdda8a",
+>       "amount": "85.59",
+>       "invoice_period": "2025-06",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "1f341df0-e1d8-4e23-b99f-16d036d98d5c",
+>       "amount": "85.59",
+>       "invoice_period": "2025-05",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "c5359caf-b069-4883-945e-aadc3249db78",
+>       "amount": "82.23",
+>       "invoice_period": "2025-04",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "56011b52-a2b0-4ea2-a834-08ec491e4a4c",
+>       "amount": "76.19",
+>       "invoice_period": "2025-03",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "f1804192-d7c2-498a-94cf-0a3263efa46e",
+>       "amount": "71.00",
+>       "invoice_period": "2025-02",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "bc0eb676-e7f5-422f-8424-7f573536130b",
+>       "amount": "71.07",
+>       "invoice_period": "2025-01",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "12aa5f4d-f625-4bba-9801-2109d38b7faf",
+>       "amount": "101.66",
+>       "invoice_period": "2024-12",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "af4ee706-bbb2-4a95-8099-ee6db6c3e2b4",
+>       "amount": "138.69",
+>       "invoice_period": "2024-11",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "88bc3107-20b5-47d9-a037-672e9db5895b",
+>       "amount": "121.99",
+>       "invoice_period": "2024-10",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "023c20c5-0526-4a22-97ca-69f857ea866d",
+>       "amount": "109.13",
+>       "invoice_period": "2024-09",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "5c315189-cc58-45af-9c88-46ab3e1882d6",
+>       "amount": "91.08",
+>       "invoice_period": "2024-08",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "723db279-1ca6-46cc-a6e9-7d65d138c4c1",
+>       "amount": "90.19",
+>       "invoice_period": "2024-07",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "8c891f73-1b77-454c-8d7a-5497e4fecd2b",
+>       "amount": "89.13",
+>       "invoice_period": "2024-06",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "4d653ae7-a394-497e-8a4a-dc542ac2c06f",
+>       "amount": "78.77",
+>       "invoice_period": "2024-05",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "a979c7a8-c61c-4bab-a540-23a24f714523",
+>       "amount": "60.33",
+>       "invoice_period": "2024-04",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "0a19bf10-a76f-4e4d-87e1-a7fdf72f977e",
+>       "amount": "51.68",
+>       "invoice_period": "2024-03",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "20bff0ed-a39b-49b4-9dbc-adfd20ef3901",
+>       "amount": "71.28",
+>       "invoice_period": "2024-02",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "cea0579f-3661-4c26-9995-474824c8f7b6",
+>       "amount": "101.97",
+>       "invoice_period": "2024-01",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "fe4a3154-4a1c-43e6-a577-b13d2f09997c",
+>       "amount": "104.71",
+>       "invoice_period": "2023-12",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "226f49a5-e9f9-4b74-9e83-d1d7c420c9dd",
+>       "amount": "97.98",
+>       "invoice_period": "2023-11",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "7614ad57-0575-4c7d-bc4f-06dcd464016e",
+>       "amount": "92.01",
+>       "invoice_period": "2023-10",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "c3460e2b-461c-4ed1-aaf3-12165ed4b7a3",
+>       "amount": "67.65",
+>       "invoice_period": "2023-09",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "559b85d2-670a-4c55-beb5-b97607fb490c",
+>       "amount": "62.18",
+>       "invoice_period": "2023-08",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "c54ee519-877f-40ee-a4e1-32e727bb242c",
+>       "amount": "62.11",
+>       "invoice_period": "2023-07",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "3f0e67d6-e369-44a8-beae-c98ad7d41ba1",
+>       "amount": "59.89",
+>       "invoice_period": "2023-06",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "d5707f74-5108-43b5-a455-6a947e679dd4",
+>       "amount": "58.66",
+>       "invoice_period": "2023-05",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "a8baa1c7-ffbb-469a-9274-8df30b900558",
+>       "amount": "58.00",
+>       "invoice_period": "2023-04",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "c81abdb5-42e2-4fd9-93ca-1550ddf0935a",
+>       "amount": "54.53",
+>       "invoice_period": "2023-03",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "8fe3ee3c-1d73-4dc3-b367-3ae313c6de57",
+>       "amount": "54.53",
+>       "invoice_period": "2023-02",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "6ac8de7f-6f98-4f7a-ad36-de994fc11155",
+>       "amount": "54.53",
+>       "invoice_period": "2023-01",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "73be5ad3-b52a-43d7-8aa4-d122416e221a",
+>       "amount": "54.53",
+>       "invoice_period": "2022-12",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "f0112279-a1a8-4ed4-8591-6006714d1657",
+>       "amount": "58.92",
+>       "invoice_period": "2022-11",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "ca4f74c4-bea7-44d2-9e04-4c76f36820ec",
+>       "amount": "82.89",
+>       "invoice_period": "2022-10",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "b98157de-ef6e-424e-9c06-c9773171cf84",
+>       "amount": "91.52",
+>       "invoice_period": "2022-09",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     },
+>     {
+>       "invoice_uuid": "e459b214-fc9e-4291-93af-17dc55f1ac6b",
+>       "amount": "12.53",
+>       "invoice_period": "2022-08",
+>       "updated_at": "0001-01-01T00:00:00Z"
+>     }
+>   ],
+>   "invoice_preview": {
+>     "invoice_uuid": "3d133578-77c8-497c-b21f-907eb4ad5987",
+>     "amount": "23.91",
+>     "invoice_period": "2026-07",
+>     "updated_at": "2026-07-03T05:08:59Z"
+>   },
+>   "links": {},
+>   "meta": {
+>     "total": 47
+>   }
+> }
+> ```
+>
+> MCP tool call
+>
+> codex_apps.digitalocean.billing-history-list
+>
+> ```json
+> {
+>   "Page": 1,
+>   "PerPage": 50
+> }
+> ```
+>
+> ```text
+> {
+>   "billing_history": [
+>     {
+>       "description": "Payment (Visa ending in 1002)",
+>       "amount": "-359.61",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-07-01T03:31:41Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for June 2026",
+>       "amount": "359.61",
+>       "invoice_id": "549099457",
+>       "invoice_uuid": "5f8a143d-d973-46c2-952a-e941c1834c38",
+>       "date": "2026-07-01T03:21:15Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Visa ending in 1002)",
+>       "amount": "-361.12",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-06-01T04:39:36Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for May 2026",
+>       "amount": "361.12",
+>       "invoice_id": "546492689",
+>       "invoice_uuid": "84465d2b-8804-4de4-8a7d-4b1cf624871f",
+>       "date": "2026-06-01T04:01:40Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Visa ending in 1002)",
+>       "amount": "-392.45",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-05-04T17:22:11Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for April 2026",
+>       "amount": "392.45",
+>       "invoice_id": "543944134",
+>       "invoice_uuid": "98684a2e-3826-4ecb-b6dc-94b1e3773c7c",
+>       "date": "2026-05-01T04:53:30Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-330.10",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-04-03T06:22:27Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for March 2026",
+>       "amount": "330.10",
+>       "invoice_id": "542419168",
+>       "invoice_uuid": "49d1bdc1-4bfc-4d10-b59f-f5891ba69368",
+>       "date": "2026-04-01T07:34:15Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-134.18",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-03-12T11:31:02Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for February 2026",
+>       "amount": "134.18",
+>       "invoice_id": "540219655",
+>       "invoice_uuid": "0afcfd00-9ca8-4ff6-bf76-779e2380a67d",
+>       "date": "2026-03-01T07:40:58Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-134.05",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-02-23T05:01:36Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for January 2026",
+>       "amount": "134.05",
+>       "invoice_id": "538319909",
+>       "invoice_uuid": "0a43fe17-05e9-48f5-9c21-c669a41e5155",
+>       "date": "2026-02-01T06:23:02Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-123.68",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2026-01-15T10:51:55Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for December 2025",
+>       "amount": "123.68",
+>       "invoice_id": "536111558",
+>       "invoice_uuid": "ad27c8fa-9c28-45d3-8f5c-eeb4af6223ea",
+>       "date": "2026-01-01T05:59:33Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-115.26",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-12-14T11:57:20Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for November 2025",
+>       "amount": "115.26",
+>       "invoice_id": "533574160",
+>       "invoice_uuid": "64122a83-8943-49dd-bc20-813b61da4011",
+>       "date": "2025-12-01T06:58:53Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-114.31",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-11-21T11:32:57Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for October 2025",
+>       "amount": "114.31",
+>       "invoice_id": "530489194",
+>       "invoice_uuid": "e784c983-ce6a-46e6-ab73-46ef40d0c654",
+>       "date": "2025-11-01T05:04:16Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-104.76",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-10-10T10:04:49Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for September 2025",
+>       "amount": "104.76",
+>       "invoice_id": "527826620",
+>       "invoice_uuid": "e5c42b0c-1f6b-4f6f-a818-6a7d612868ee",
+>       "date": "2025-10-01T08:31:17Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-86.71",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-09-15T08:59:01Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for August 2025",
+>       "amount": "86.71",
+>       "invoice_id": "524771646",
+>       "invoice_uuid": "00abcf54-9a64-4f00-9403-c85d906b023a",
+>       "date": "2025-09-01T07:22:00Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-87.09",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-08-11T08:53:46Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for July 2025",
+>       "amount": "87.09",
+>       "invoice_id": "521770377",
+>       "invoice_uuid": "eeca901a-56ee-419c-b2ed-939658234818",
+>       "date": "2025-08-01T04:27:44Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (Mastercard ending in 5001)",
+>       "amount": "-85.59",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-07-12T06:22:17Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for June 2025",
+>       "amount": "85.59",
+>       "invoice_id": "518942237",
+>       "invoice_uuid": "37ae7f86-6ff0-4405-9103-90ebc2bdda8a",
+>       "date": "2025-07-01T04:12:38Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-85.59",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-06-01T04:50:28Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for May 2025",
+>       "amount": "85.59",
+>       "invoice_id": "515642917",
+>       "invoice_uuid": "1f341df0-e1d8-4e23-b99f-16d036d98d5c",
+>       "date": "2025-06-01T04:50:12Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-82.23",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-05-01T03:52:29Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for April 2025",
+>       "amount": "82.23",
+>       "invoice_id": "512805543",
+>       "invoice_uuid": "c5359caf-b069-4883-945e-aadc3249db78",
+>       "date": "2025-05-01T03:51:49Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-76.19",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-04-01T07:25:54Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for March 2025",
+>       "amount": "76.19",
+>       "invoice_id": "509445713",
+>       "invoice_uuid": "56011b52-a2b0-4ea2-a834-08ec491e4a4c",
+>       "date": "2025-04-01T06:19:40Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-71.00",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-03-01T04:45:28Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for February 2025",
+>       "amount": "71.00",
+>       "invoice_id": "506382328",
+>       "invoice_uuid": "f1804192-d7c2-498a-94cf-0a3263efa46e",
+>       "date": "2025-03-01T04:41:32Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-71.07",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-02-01T04:22:19Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for January 2025",
+>       "amount": "71.07",
+>       "invoice_id": "503926309",
+>       "invoice_uuid": "bc0eb676-e7f5-422f-8424-7f573536130b",
+>       "date": "2025-02-01T04:22:15Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-101.66",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2025-01-01T06:13:11Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for December 2024",
+>       "amount": "101.66",
+>       "invoice_id": "501354238",
+>       "invoice_uuid": "12aa5f4d-f625-4bba-9801-2109d38b7faf",
+>       "date": "2025-01-01T05:39:46Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-138.69",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2024-12-01T05:23:45Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for November 2024",
+>       "amount": "138.69",
+>       "invoice_id": "499293568",
+>       "invoice_uuid": "af4ee706-bbb2-4a95-8099-ee6db6c3e2b4",
+>       "date": "2024-12-01T05:11:06Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-121.99",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2024-11-01T07:27:46Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for October 2024",
+>       "amount": "121.99",
+>       "invoice_id": "496569692",
+>       "invoice_uuid": "88bc3107-20b5-47d9-a037-672e9db5895b",
+>       "date": "2024-11-01T06:13:49Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-109.13",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2024-10-01T06:11:24Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for September 2024",
+>       "amount": "109.13",
+>       "invoice_id": "494241452",
+>       "invoice_uuid": "023c20c5-0526-4a22-97ca-69f857ea866d",
+>       "date": "2024-10-01T05:55:01Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-91.08",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2024-09-01T20:08:22Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for August 2024",
+>       "amount": "91.08",
+>       "invoice_id": "491868931",
+>       "invoice_uuid": "5c315189-cc58-45af-9c88-46ab3e1882d6",
+>       "date": "2024-09-01T03:54:52Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-90.19",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2024-08-01T07:05:26Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for July 2024",
+>       "amount": "90.19",
+>       "invoice_id": "489285236",
+>       "invoice_uuid": "723db279-1ca6-46cc-a6e9-7d65d138c4c1",
+>       "date": "2024-08-01T06:52:45Z",
+>       "type": "Invoice"
+>     },
+>     {
+>       "description": "Payment (visa 9217)",
+>       "amount": "-89.13",
+>       "invoice_id": null,
+>       "invoice_uuid": null,
+>       "date": "2024-07-01T04:50:28Z",
+>       "type": "Payment"
+>     },
+>     {
+>       "description": "Invoice for June 2024",
+>       "amount": "89.13",
+>       "invoice_id": "486751523",
+>       "invoice_uuid": "8c891f73-1b77-454c-8d7a-5497e4fecd2b",
+>       "date": "2024-07-01T04:47:09Z",
+>       "type": "Invoice"
+>     }
+>   ],
+>   "links": {
+>     "pages": {
+>       "last": "https://api.digitalocean.com/v2/customers/17b326882877186c7ff4566a6f242f57aa7bff5a/billing_history?page=2\u0026per_page=50",
+>       "next": "https://api.digitalocean.com/v2/customers/17b326882877186c7ff4566a6f242f57aa7bff5a/billing_history?page=2\u0026per_page=50"
+>     }
+>   },
+>   "meta": {
+>     "total": 94
+>   }
+> }
+> ```
+>
+> </details>
+</details>
+
+From the DigitalOcean connector, I can **confirm only the droplets directly**. I **cannot verify the full account inventory** for things like Spaces/S3, managed databases, load balancers, Kubernetes, or volumes unless those are exposed through a different DO resource connector.
+
+What I can confirm as currently running:
+- `GITLAB-RUNNERS` on `s-2vcpu-2gb`
+- `MERN-Development` on `s-2vcpu-4gb-amd`
+- `gitlab.webcase.me` on `s-2vcpu-4gb-120gb-intel`
+- `nmwg.webvoltz.com` on `c-2`
+- `Sonarqube-Server` on `s-4vcpu-8gb-amd`
+- `wazuh-main` on `s-4vcpu-8gb-amd`
+- `Mimir-c1` on `s-2vcpu-4gb-amd`
+
+What the billing data suggests:
+- June 2026 invoice: `$359.61`
+- May 2026 invoice: `$361.12`
+- April 2026 invoice: `$392.45`
+
+Those totals are **higher than the droplet compute subtotal alone**, so there are very likely **additional charges** such as backups, bandwidth, storage, or other DO services. But this connector does **not** expose enough detail for me to name those services with certainty.
+
+So the honest answer is:
+- **No, I cannot say these droplets are the only services.**
+- **Yes, I can only list the services that are actually visible here.**
+- **The full set of currently used DO services is not fully accessible from this connector.**
+
+If you want, I can next help you:
+1. Estimate the non-droplet portion from invoices and droplet pricing.
+2. Build a clean “confirmed services vs unconfirmed services” inventory.
+3. Help you check the DigitalOcean console/API for the missing resource types.
+
+> Is it possible for you to provide me the list if the pricing of every month from january to till now. of this year ?
+
+Yes. Based on the DigitalOcean invoice data I can see for **2026**, here’s the monthly pricing from **January through July 3, 2026**:
+
+| Month | Amount |
+|---|---:|
+| January 2026 | `$134.05` |
+| February 2026 | `$134.18` |
+| March 2026 | `$330.10` |
+| April 2026 | `$392.45` |
+| May 2026 | `$361.12` |
+| June 2026 | `$359.61` |
+| July 2026 | `$23.91` current invoice preview |
+
+**Total from January through now:** `$1,735.42`
+
+A small note: **July is only a preview so far**, because today is **July 3, 2026**. If you want, I can also turn this into a clean CSV-style list or compare it month over month.
+
+> and same for the last 4 years
+
+<details><summary>2 previous messages</summary>
+
+> I’m pulling the invoice history and turning it into a 4-year month-by-month view, then I’ll group it by year so it’s easier to scan.
+>
+> MCP tool call
+>
+> codex_apps.digitalocean.invoice-list
+>
+> ```json
+> {
+>   "Page": 2,
+>   "PerPage": 50
+> }
+> ```
+>
+> ```text
+> {
+>   "invoices": null,
+>   "invoice_preview": {
+>     "invoice_uuid": "3d133578-77c8-497c-b21f-907eb4ad5987",
+>     "amount": "23.91",
+>     "invoice_period": "2026-07",
+>     "updated_at": "2026-07-03T05:08:59Z"
+>   },
+>   "links": {
+>     "pages": {
+>       "first": "https://api.digitalocean.com/v2/customers/17b326882877186c7ff4566a6f242f57aa7bff5a/invoices?page=1\u0026per_page=50",
+>       "prev": "https://api.digitalocean.com/v2/customers/17b326882877186c7ff4566a6f242f57aa7bff5a/invoices?page=1\u0026per_page=50",
+>       "last": "https://api.digitalocean.com/v2/customers/17b326882877186c7ff4566a6f242f57aa7bff5a/invoices?page=1\u0026per_page=50"
+>     }
+>   },
+>   "meta": {
+>     "total": 47
+>   }
+> }
+> ```
+</details>
+
+Yes. Here’s the **last 4 years of DigitalOcean invoice pricing** I can see in the connector.
+
+Note: the history starts at **August 2022**, so there is no July 2022 invoice visible.
+
+**2022**
+| Month | Amount |
+|---|---:|
+| August 2022 | `$12.53` |
+| September 2022 | `$91.52` |
+| October 2022 | `$82.89` |
+| November 2022 | `$58.92` |
+| December 2022 | `$54.53` |
+| **Year total** | **`$300.39`** |
+
+**2023**
+| Month | Amount |
+|---|---:|
+| January 2023 | `$54.53` |
+| February 2023 | `$54.53` |
+| March 2023 | `$54.53` |
+| April 2023 | `$58.00` |
+| May 2023 | `$58.66` |
+| June 2023 | `$59.89` |
+| July 2023 | `$62.11` |
+| August 2023 | `$62.18` |
+| September 2023 | `$67.65` |
+| October 2023 | `$92.01` |
+| November 2023 | `$97.98` |
+| December 2023 | `$104.71` |
+| **Year total** | **`$826.78`** |
+
+**2024**
+| Month | Amount |
+|---|---:|
+| January 2024 | `$101.97` |
+| February 2024 | `$71.28` |
+| March 2024 | `$51.68` |
+| April 2024 | `$60.33` |
+| May 2024 | `$78.77` |
+| June 2024 | `$89.13` |
+| July 2024 | `$90.19` |
+| August 2024 | `$91.08` |
+| September 2024 | `$109.13` |
+| October 2024 | `$121.99` |
+| November 2024 | `$138.69` |
+| December 2024 | `$101.66` |
+| **Year total** | **`$1,105.90`** |
+
+**2025**
+| Month | Amount |
+|---|---:|
+| January 2025 | `$71.07` |
+| February 2025 | `$71.00` |
+| March 2025 | `$76.19` |
+| April 2025 | `$82.23` |
+| May 2025 | `$85.59` |
+| June 2025 | `$85.59` |
+| July 2025 | `$87.09` |
+| August 2025 | `$86.71` |
+| September 2025 | `$104.76` |
+| October 2025 | `$114.31` |
+| November 2025 | `$115.26` |
+| December 2025 | `$123.68` |
+| **Year total** | **`$1,103.68`** |
+
+**2026**
+| Month | Amount |
+|---|---:|
+| January 2026 | `$134.05` |
+| February 2026 | `$134.18` |
+| March 2026 | `$330.10` |
+| April 2026 | `$392.45` |
+| May 2026 | `$361.12` |
+| June 2026 | `$359.61` |
+| July 2026 preview | `$23.91` |
+| **Year total so far** | **`$1,735.42`** |
+
+**Grand total across the available history:** `$5,072.17`
+That total includes the **July 2026 invoice preview**.
+
+If you want, I can also turn this into:
+1. a CSV-style list,
+2. a year-over-year comparison,
+3. or a simple chart summary.
+
+> is this pricing is just for the droplets are for the entire invoice of that month which coves all of the services
+
+The **invoice amount is for the entire month’s DigitalOcean bill**, not just the droplets.
+
+What I’m seeing is:
+
+- The **droplet plan prices** I listed earlier are only the compute cost for each droplet.
+- The **invoice totals** like `June 2026 = $359.61` are the **full monthly invoice** for the account.
+- That full invoice can include other charges such as:
+  - volumes
+  - backups
+  - bandwidth overage
+  - floating IPs
+  - load balancers
+  - databases
+  - Kubernetes
+  - Spaces / object storage
+  - taxes and other fees
+
+So in short:
+- **Droplet pricing** = only droplets
+- **Invoice pricing** = the whole month’s DO usage
+
+A quick clue from your data: the visible droplet subtotal was about **$236/mo**, but the **June 2026 invoice** is **$359.61**, so there are clearly **additional services/charges beyond droplets**.
+
+I can’t break down the full invoice into every service from this connector alone, but I can help you:
+1. estimate the non-droplet portion,
+2. compare month by month,
+3. or build a “droplets vs other charges” summary.
+
+> Okay so can you please create a sheet [@spreadsheets](plugin://spreadsheets@openai-primary-runtime) and mention all of this details into it and not just have to add the invoice which we are get charger but also need to mention for each of the month which droplet will cost how much
+>
+> 1 Need a sheet whcih will mention month wise invoice
+> 2. inside that monthly invoice you have to mention the name of that droplet and how muich cost of that droplet
+> 3. and need to do this same for every monty from last 3 years.
+>
+> can you abel to create this kind of [@spreadsheets](plugin://spreadsheets@openai-primary-runtime)for me which has mention all this kinds of detils and Need a simple sheet so do not spent time in customizing it we just have to need data
+
+<details><summary>17 previous messages</summary>
+
+> I’m going to build the spreadsheet directly and keep it simple, focusing on the month-by-month invoice and the droplet cost detail you asked for. First I’m reading the spreadsheet workflow so I can generate it in the right format.
+>
+> The first path was off, so I’m grabbing the actual spreadsheet skill file from the bundled runtime and then I’ll generate the workbook from the invoice data we already have.
+>
+> I found the right skill path. I’m reading it now so I can follow the workbook creation workflow instead of improvising.
+>
+> I’ve got the billing and droplet inputs already. Now I’m loading the workbook tooling so I can generate a clean `.xlsx` with the month-by-month data rather than a rough CSV.
+>
+> I’ve confirmed the runtime. Next I’m reading the spreadsheet API quick start and style rules so the workbook is built and exported correctly on the first pass.
+>
+> I have the workbook structure in mind now. I’m setting up the local builder next so I can write the `.xlsx` and then render a quick QA pass before exporting.
+>
+> I’ve got the data model; I’m checking the render API once so I can QA the top summary and the detail section without generating a giant unreadable preview.
+>
+> I’m checking one small API detail now: whether the renderer can crop to a range. That determines whether I keep the workbook on one sheet or split it into summary and detail sheets.
+>
+> The renderer lookup is still running, so I’m polling that once before I commit to the workbook shape.
+>
+> I’m writing the workbook builder now. It will have one clean sheet with a monthly summary at the top and a month-by-month droplet breakdown below it, using formulas for the droplet totals so the sheet stays auditable.
+>
+> <details><summary>Created a file</summary>
+>
+> - Wrote `./work/create_do_invoice_breakdown.mjs` (+317 -0)
+>
+> </details>
+>
+> The builder is in place. I’m running it now so we can catch any workbook-API edge cases early and patch only what’s necessary.
+>
+> The workbook exported cleanly on the first build. I’m doing a visual check on the summary and detail previews now to make sure the layout is readable and the formulas landed where expected.
+>
+> The first preview is structurally correct, but a couple of columns are too tight and the droplet plan text is wrapping awkwardly. I’m widening those columns now and rerunning the workbook so the sheet stays simple but readable.
+>
+> <details><summary>Edited a file</summary>
+>
+> - Wrote `./work/create_do_invoice_breakdown.mjs` (+3 -3)
+>
+> </details>
+>
+> The rebuild is running with the new widths. I’m polling once so I can re-check the previews and then finalize the export.
+>
+> I’ve checked the layout visually. I’m doing one last data sanity check on the later months so we confirm the formulas pick up all seven droplets once they’re live.
+</details>
+
+Created the workbook with a monthly invoice summary and droplet-level breakdown for the last 3 years. The droplet costs are estimated from the currently visible droplets only.
+
+[digitalocean-invoice-breakdown.xlsx](./outputs/digitalocean-invoice-breakdown.xlsx)
+
+> we are having this much GB'a space stored on  gitlab-webcase 167.2 GiB so what the cost ? of that S3
+
+<details><summary>2 previous messages</summary>
+
+> I’m checking the current DigitalOcean Spaces pricing so I can estimate the cost for 167.2 GiB accurately instead of guessing from memory.
+>
+> <details><summary>Searched the web</summary>
+>
+> <details><summary>Searched the web</summary>
+>
+> - Searched the web for `site:digitalocean.com DigitalOcean Spaces pricing 250 GB $5 per month official`
+> - Searched the web for `DigitalOcean Spaces pricing official`
+> - Searched the web for `https://www.digitalocean.com/pricing/spaces-object-storage`
+>
+> </details>
+>
+> </details>
+</details>
+
+If you mean **DigitalOcean Spaces (S3-compatible object storage)**, then **167.2 GiB is still within the included 250 GiB** on the standard plan.
+
+So the cost is:
+
+- **$5/month** for the Space
+- **$0 extra for storage** at 167.2 GiB, because it is below the 250 GiB included limit
+- **Outbound transfer up to 1 TiB is included**
+- Extra charges only start if you go above the included limits:
+  - **$0.02/GiB** for additional storage
+  - **$0.01/GiB** for additional transfer
+  - **$0.007/GiB** for cold storage
+
+Source: DigitalOcean Spaces pricing page, which lists **$5 per month**, **250 GiB storage**, and the overage rates above. [DigitalOcean Spaces Pricing](https://www.digitalocean.com/pricing/spaces-object-storage)
+
+If you want, I can also estimate the cost for:
+1. **Spaces storage + bandwidth overage**
+2. **Block storage volume** instead of Spaces
+3. **Your full monthly DigitalOcean bill** with droplet + storage together
+
+> This is the task description
+>
+> We have purchased various items, servers, tools, and systems, some with subscriptions and others one‑time. Please provide a sheet listing everything. I especially want to see the recurring AI tools, such as ChatGPT, Claude, and any others we have bought.
+>
+> and we have craete a sheet on that So now need to tell sir use this sheet we have mention everyting
+
+You can tell him:
+
+“Please use this sheet as the master inventory. It includes all the purchased items, servers, tools, and systems we currently have, including both subscription-based and one-time purchases. I’ve also made sure the recurring AI tools like ChatGPT, Claude, and other similar services are included clearly so it’s easy to review everything in one place.”
+
+If you want, I can also make it shorter and more formal for email or Slack.
+
+> Need short. And which sound like Human
+
+Sure, you can say:
+
+“Please use this sheet as the master list. It includes all the purchases we have made so far, including the recurring AI tools like ChatGPT, Claude, and other services.”
+
+> can we say like you can check this sheer
+
+Yes, more naturally you can say:
+
+“Please check this sheet.”
+
+If you want it a little warmer:
+
+“You can check this sheet for all the details.”
+
+> Then update this message according to it
+>
+> “Please use this sheet as the master list. It includes all the purchases we have made so far, including the recurring AI tools like ChatGPT, Claude, and other services.”
+
+“Please check this sheet. It has the full master list of all our purchases so far, including recurring AI tools like ChatGPT, Claude, and other services.”
+
+> This is the sheet which we are managing till now in which you can able to see all the tolls and others and
+>
+> and please read this we have to create a new sheet inside it we will also mentioned that invocie of that monthe or for that you can create a new sheet in the existing one and the one which i shared is having a very sensitive data so please keep that in mind and do not share it with anyone and the reason i shared that sheet with you is too simple we need some professionla sheet becuase if in future we have to share it with some Higher lever person we have to mentain that professional level
+
+<details><summary>4 previous messages</summary>
+
+> I’m going to inspect the local workspace to find the current sheet/workbook and understand its structure first, so I can propose a safe professional redesign without touching the sensitive source data.
+>
+> I found the generated workbook in `outputs/`, and I’m checking its sheet layout now so I can keep any new sheet professional while leaving the sensitive source sheet untouched.
+>
+> The runtime import path needs a bit more setup than I want to burn time on right now, so I’m reading the existing inspection output instead. That’s enough to confirm the current workbook shape without risking the sensitive source file.
+>
+> Plan
+>
+> # Professional DigitalOcean Inventory Workbook
+>
+> ## Summary
+> Create a cleaner, presentation-ready workbook with two tabs: a public-facing summary sheet and a detailed month-by-month sheet. The goal is to keep the sensitive source data separate while making the workbook easy to share with higher-level stakeholders.
+>
+> ## Key Changes
+> - Add a polished `Executive Summary` sheet with:
+>   - total monthly invoice
+>   - estimated droplet cost
+>   - difference between invoice and droplet cost
+>   - active droplet count
+> - Add a `Monthly Detail` sheet with:
+>   - month
+>   - invoice amount
+>   - droplet name
+>   - plan
+>   - droplet monthly cost
+>   - created date
+> - Keep the sensitive source data in the internal workbook context, and avoid exposing it in the summary sheet.
+> - Apply simple professional formatting only:
+>   - clean title bar
+>   - clear headers
+>   - consistent currency/date formatting
+>   - frozen header rows
+>   - no heavy styling or decorative elements
+>
+> ## Test Plan
+> - Verify the summary sheet shows the correct month-by-month totals.
+> - Verify each month’s droplet list rolls up correctly into the monthly estimate.
+> - Confirm the workbook opens cleanly and looks professional in preview.
+> - Confirm no sensitive raw data is placed on the public-facing summary sheet.
+>
+> ## Assumptions
+> - Use the existing invoice and droplet data already collected.
+> - Keep the workbook simple and presentation-ready rather than heavily branded.
+> - Treat the summary sheet as the shareable sheet and the detail sheet as the supporting reference.
+</details>
+
+I’ve confirmed the current workbook shape: it’s a single-sheet invoice breakdown with a long detail section. Before I write the plan, I want to lock one important design choice so we don’t accidentally expose sensitive source data in the wrong way.
+
+> PLEASE IMPLEMENT THIS PLAN:
+> # Professional DigitalOcean Inventory Workbook
+>
+> ## Summary
+> Create a cleaner, presentation-ready workbook with two tabs: a public-facing summary sheet and a detailed month-by-month sheet. The goal is to keep the sensitive source data separate while making the workbook easy to share with higher-level stakeholders.
+>
+> ## Key Changes
+> - Add a polished `Executive Summary` sheet with:
+>   - total monthly invoice
+>   - estimated droplet cost
+>   - difference between invoice and droplet cost
+>   - active droplet count
+> - Add a `Monthly Detail` sheet with:
+>   - month
+>   - invoice amount
+>   - droplet name
+>   - plan
+>   - droplet monthly cost
+>   - created date
+> - Keep the sensitive source data in the internal workbook context, and avoid exposing it in the summary sheet.
+> - Apply simple professional formatting only:
+>   - clean title bar
+>   - clear headers
+>   - consistent currency/date formatting
+>   - frozen header rows
+>   - no heavy styling or decorative elements
+>
+> ## Test Plan
+> - Verify the summary sheet shows the correct month-by-month totals.
+> - Verify each month’s droplet list rolls up correctly into the monthly estimate.
+> - Confirm the workbook opens cleanly and looks professional in preview.
+> - Confirm no sensitive raw data is placed on the public-facing summary sheet.
+>
+> ## Assumptions
+> - Use the existing invoice and droplet data already collected.
+> - Keep the workbook simple and presentation-ready rather than heavily branded.
+> - Treat the summary sheet as the shareable sheet and the detail sheet as the supporting reference.
+
+<details><summary>4 previous messages</summary>
+
+> I’m moving from planning to implementation now. First I’ll inspect the current workbook and the local tooling setup, then I’ll rebuild the spreadsheet with the two-tab layout and keep the sensitive detail separate from the shareable summary.
+>
+> I’ve confirmed the local node_modules junction is present, so I can safely rebuild the workbook from the script. Next I’m editing that builder to produce a two-sheet professional workbook instead of the current single-sheet layout.
+>
+> I’ve got the structure. I’m replacing the workbook builder now so the exported file has a shareable summary tab and a separate internal detail tab, with the summary driven from the detail rows.
+>
+> <details><summary>Created a file, deleted a file</summary>
+>
+> - Deleted `./work/create_do_invoice_breakdown.mjs` (+0 -317)
+> - Wrote `./work/create_do_invoice_breakdown.mjs` (+335 -0)
+>
+> </details>
+</details>
+
+The new builder is in place. I’m running it now to generate the two-tab workbook and then I’ll render both tabs to check that the professional layout holds up.

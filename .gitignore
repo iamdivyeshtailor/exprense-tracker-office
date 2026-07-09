@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules/
+
+# Local configurations and credentials (CRITICAL)
+.env
+google-credentials.json
+
+# Spreadsheets containing active passwords and costs (CRITICAL)
+*.xlsx
+*.xlsx.inspect.ndjson
+
+# Invoice uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db
