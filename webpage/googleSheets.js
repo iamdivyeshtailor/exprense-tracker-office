@@ -111,7 +111,7 @@ function fillDownGroupedRows(rows, headers) {
 async function seedSheetFromExcel(sheets, spreadsheetId, sheetName) {
   try {
     const ExcelJS = require('exceljs');
-    const EXCEL_FILE = path.join(__dirname, 'Master_IT_Purchases_and_Billing.xlsx');
+    const EXCEL_FILE = path.join(__dirname, '..', 'Master_IT_Purchases_and_Billing.xlsx');
     if (!fs.existsSync(EXCEL_FILE)) return;
 
     // 1. Create the sheet online

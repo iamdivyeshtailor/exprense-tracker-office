@@ -42,7 +42,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Path to our master local excel file
-const EXCEL_FILE = path.join(__dirname, 'Master_IT_Purchases_and_Billing.xlsx');
+const EXCEL_FILE = path.join(__dirname, '..', 'Master_IT_Purchases_and_Billing.xlsx');
 
 // Helper to get all month headers from 2023-01 to the current calendar month
 function getRequiredMonthHeaders() {
