@@ -290,6 +290,7 @@ body {
   padding: 1.5rem;
   box-shadow: var(--card-shadow);
   transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  cursor: pointer;
 }
 
 .metric-card:hover {

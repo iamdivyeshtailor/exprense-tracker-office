@@ -83,6 +83,42 @@ function setupEventListeners() {
     });
   });
 
+  // Metrics Grid Cards click navigations
+  const cardSpend = document.querySelector('.card-spend');
+  const cardSubs = document.querySelector('.card-subs');
+  const cardDomains = document.querySelector('.card-domains');
+  const cardAlerts = document.querySelector('.card-alerts');
+
+  if (cardSpend) {
+    cardSpend.addEventListener('click', () => {
+      switchTab('billingHistory');
+    });
+  }
+  if (cardSubs) {
+    cardSubs.addEventListener('click', () => {
+      switchTab('purchases');
+    });
+  }
+  if (cardDomains) {
+    cardDomains.addEventListener('click', () => {
+      switchTab('domains');
+    });
+  }
+  if (cardAlerts) {
+    cardAlerts.addEventListener('click', () => {
+      const upcomingSec = document.querySelector('.upcoming-expirations');
+      if (upcomingSec) {
+        upcomingSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const cardParent = upcomingSec.closest('.chart-card') || upcomingSec;
+        cardParent.style.transition = 'box-shadow 0.3s ease';
+        cardParent.style.boxShadow = '0 0 20px rgba(122, 0, 223, 0.4)';
+        setTimeout(() => {
+          cardParent.style.boxShadow = 'var(--card-shadow)';
+        }, 1500);
+      }
+    });
+  }
+
   // Action Buttons
   refreshBtn.addEventListener('click', () => {
     fetchData();
@@ -157,6 +193,15 @@ function setupEventListeners() {
 // Switch Tabs UI and state
 function switchTab(tab) {
   activeTab = tab;
+  
+  // Highlight active sidebar navigation link
+  navLinks.forEach(link => {
+    if (link.getAttribute('data-tab') === tab) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
   
   // Reset search inputs
   tableSearchInput.value = '';
