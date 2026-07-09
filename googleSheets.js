@@ -1,4 +1,4 @@
-const { google } = require('@googleapis/sheets');
+const { auth, sheets } = require('@googleapis/sheets');
 const fs = require('fs');
 const path = require('path');
 
@@ -11,11 +11,11 @@ function isSheetsConfigured() {
 
 // Get Google Sheets API client
 function getSheetsClient() {
-  const auth = new google.auth.GoogleAuth({
+  const authClient = new auth.GoogleAuth({
     keyFile: CREDENTIALS_PATH,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
-  return google.sheets({ version: 'v4', auth });
+  return sheets({ version: 'v4', auth: authClient });
 }
 
 const tabMapping = {
