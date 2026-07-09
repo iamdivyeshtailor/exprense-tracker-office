@@ -630,7 +630,7 @@ tr:last-child {
   background: var(--accent-secondary-glow);
 }
 
-.action-archive:hover {
+.action-delete:hover {
   color: var(--danger);
   background: var(--danger-glow);
 }

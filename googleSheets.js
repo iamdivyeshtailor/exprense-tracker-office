@@ -299,9 +299,44 @@ async function archiveGoogleSheetsRow(type, rowIndex) {
   });
 }
 
+// Delete Google Sheets Row (splices row out and shifts others up)
+async function deleteGoogleSheetsRow(type, rowIndex) {
+  const sheets = getSheetsClient();
+  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+  const sheetName = tabMapping[type];
+
+  // Get sheetId for the given sheet name
+  const meta = await sheets.spreadsheets.get({ spreadsheetId });
+  const sheet = meta.data.sheets.find(s => s.properties.title === sheetName);
+  if (!sheet) {
+    throw new Error(`Sheet ${sheetName} not found`);
+  }
+  const googleSheetId = sheet.properties.sheetId;
+
+  // Send request to delete the row
+  await sheets.spreadsheets.batchUpdate({
+    spreadsheetId,
+    requestBody: {
+      requests: [
+        {
+          deleteDimension: {
+            range: {
+              sheetId: googleSheetId,
+              dimension: 'ROWS',
+              startIndex: rowIndex - 1, // 0-based
+              endIndex: rowIndex
+            }
+          }
+        }
+      ]
+    }
+  });
+}
+
 module.exports = {
   isSheetsConfigured,
   loadGoogleSheetsData,
   saveGoogleSheetsRow,
-  archiveGoogleSheetsRow
+  archiveGoogleSheetsRow,
+  deleteGoogleSheetsRow
 };

@@ -396,8 +396,8 @@ async function saveExcelRow(type, rowIndex, data) {
   return targetRowNumber;
 }
 
-// Archive Local Excel Row
-async function archiveExcelRow(type, rowIndex) {
+// Delete Local Excel Row (Splices row out and shifts subsequent rows up)
+async function deleteExcelRow(type, rowIndex) {
   const tabMapping = {
     purchases: 'IT Purchases',
     domains: 'Domains',
@@ -409,47 +409,13 @@ async function archiveExcelRow(type, rowIndex) {
   const sheetName = tabMapping[type];
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(EXCEL_FILE);
-  const sourceSheet = workbook.getWorksheet(sheetName);
-  const archiveSheet = workbook.getWorksheet('Inactive Assets');
+  const sheet = workbook.getWorksheet(sheetName);
 
-  if (!sourceSheet || !archiveSheet) {
-    throw new Error('Sheets not found');
+  if (!sheet) {
+    throw new Error(`Worksheet ${sheetName} not found`);
   }
 
-  const sourceRow = sourceSheet.getRow(rowIndex);
-  const rowValues = [];
-  sourceRow.eachCell({ includeEmpty: true }, (cell) => {
-    rowValues.push(getCellValue(cell));
-  });
-
-  if (rowValues.every(v => v === '')) {
-    throw new Error('Row is empty');
-  }
-
-  // Append descriptive logging to Inactive Assets
-  let lastRow = archiveSheet.rowCount;
-  while (lastRow > 1) {
-    const checkRow = archiveSheet.getRow(lastRow);
-    let hasContent = false;
-    checkRow.eachCell((c) => {
-      if (getCellValue(c) !== '') hasContent = true;
-    });
-    if (hasContent) break;
-    lastRow--;
-  }
-  const archiveRowNumber = lastRow + 1;
-  const newArchiveRow = archiveSheet.getRow(archiveRowNumber);
-
-  const dateStr = new Date().toISOString().split('T')[0];
-  newArchiveRow.getCell(1).value = `Archived from ${sheetName} on ${dateStr}: ${rowValues.filter(Boolean).slice(0, 3).join(' | ')}`;
-  newArchiveRow.commit();
-
-  // Clear source cell entries
-  sourceRow.eachCell({ includeEmpty: true }, (cell) => {
-    cell.value = null;
-  });
-  sourceRow.commit();
-
+  sheet.spliceRows(rowIndex, 1);
   await workbook.xlsx.writeFile(EXCEL_FILE);
 }
 
@@ -559,18 +525,18 @@ app.post('/api/save', async (req, res) => {
   }
 });
 
-// API: Archive Item
-app.post('/api/archive', async (req, res) => {
+// API: Delete Item
+app.post('/api/delete', async (req, res) => {
   const { type, rowIndex } = req.body;
   try {
     if (googleSheets.isSheetsConfigured()) {
-      await googleSheets.archiveGoogleSheetsRow(type, rowIndex);
+      await googleSheets.deleteGoogleSheetsRow(type, rowIndex);
     } else {
-      await archiveExcelRow(type, rowIndex);
+      await deleteExcelRow(type, rowIndex);
     }
-    res.json({ success: true, message: 'Archived successfully' });
+    res.json({ success: true, message: 'Deleted successfully' });
   } catch (error) {
-    console.error('Error archiving:', error);
+    console.error('Error deleting row:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });

@@ -665,13 +665,13 @@ function filterAndRenderActiveTable() {
       <button class="action-btn action-edit" title="Edit row">
         <svg viewBox="0 0 24 24" width="16" height="16"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
       </button>
-      <button class="action-btn action-archive" title="Archive row">
-        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-3h4v3h3.5L12 17.5zM5.12 5l.82-1h12.09l.8 1H5.12z"/></svg>
+      <button class="action-btn action-delete" title="Delete row">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
       </button>
     `;
     
     tdActions.querySelector('.action-edit').addEventListener('click', () => openModal(row));
-    tdActions.querySelector('.action-archive').addEventListener('click', () => confirmArchive(row._rowIndex));
+    tdActions.querySelector('.action-delete').addEventListener('click', () => confirmDelete(row._rowIndex));
     
     tr.appendChild(tdActions);
     tbody.appendChild(tr);
@@ -1065,29 +1065,29 @@ async function handleFormSubmit(e) {
   }
 }
 
-// Archive Confirmation logic
-function confirmArchive(rowIndex) {
-  if (confirm('Are you sure you want to archive this asset? It will be cleared from this sheet and moved to "Inactive Assets".')) {
-    archiveRow(rowIndex);
+// Delete Confirmation logic
+function confirmDelete(rowIndex) {
+  if (confirm('Are you sure you want to permanently delete this entry? This will remove the row and shift subsequent entries up.')) {
+    deleteRow(rowIndex);
   }
 }
 
-async function archiveRow(rowIndex) {
+async function deleteRow(rowIndex) {
   try {
-    const response = await fetch('/api/archive', {
+    const response = await fetch('/api/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type: activeTab, rowIndex })
     });
     const result = await response.json();
     if (result.success) {
-      showToast('Asset archived successfully!', 'success');
+      showToast('Entry deleted successfully!', 'success');
       fetchData();
     } else {
-      showToast('Error archiving: ' + result.error, 'error');
+      showToast('Error deleting: ' + result.error, 'error');
     }
   } catch (error) {
-    showToast('Failed to archive asset', 'error');
+    showToast('Failed to delete entry', 'error');
   }
 }
 
