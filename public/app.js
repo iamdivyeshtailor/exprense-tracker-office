@@ -638,17 +638,23 @@ function filterAndRenderActiveTable() {
       const val = row[header] !== undefined && row[header] !== null ? row[header] : '';
       const headerLower = header.toLowerCase();
       
-      // Render Credentials with show/hide toggle
+      // Render Credentials with show/hide toggle (only if a password exists)
       if (headerLower === 'pwd' || headerLower === 'password') {
-        td.innerHTML = `
-          <div class="credential-cell">
-            <span class="credential-text" data-password="${val}">••••••••</span>
-            <button class="credential-btn toggle-pwd-btn">
-              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </button>
-          </div>
-        `;
-        td.querySelector('.toggle-pwd-btn').addEventListener('click', togglePasswordVisibility);
+        const cleanVal = String(val).trim();
+        if (cleanVal && cleanVal !== '—' && cleanVal !== '-') {
+          td.innerHTML = `
+            <div class="credential-cell">
+              <span class="credential-text" data-password="${val}">••••••••</span>
+              <button class="credential-btn toggle-pwd-btn" title="Show password">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </button>
+            </div>
+          `;
+          td.querySelector('.toggle-pwd-btn').addEventListener('click', togglePasswordVisibility);
+        } else {
+          td.textContent = '—';
+          td.style.color = 'var(--text-muted)';
+        }
       } else if (headerLower === 'id' || headerLower === 'username') {
         td.textContent = val;
       } else if (headerLower.includes('expiry') && val) {
@@ -840,10 +846,12 @@ function togglePasswordVisibility(e) {
 
   if (isHidden) {
     span.textContent = realPassword || '—';
-    btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.63-1.44 2.78-3.4 3.44-5.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7z"/></svg>`;
+    btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.63-1.44 2.78-3.4 3.44-5.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.47-5.3c5 0 9.27 3.11 11 7.5-.78 1.98-2.08 3.7-3.73 4.97l-1.44-1.44C19.2 14.48 20.35 12.92 21 12c-1.73-4.39-6-7.5-11-7.5-1.04 0-2.04.14-3 .39L5.44 3.33A11.9 11.9 0 0 1 12 4.5z"/></svg>`;
+    btn.setAttribute('title', 'Hide password');
   } else {
     span.textContent = '••••••••';
-    btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>`;
+    btn.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>`;
+    btn.setAttribute('title', 'Show password');
   }
 }
 
