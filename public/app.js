@@ -306,7 +306,7 @@ function renderSpendChart() {
   if (!appData || !appData.billingHistory) return;
 
   const history = appData.billingHistory;
-  const monthHeaders = history.headers.filter(h => /^\d{4}-\d{2}$/.test(h)).sort();
+  const monthHeaders = history.headers.filter(h => /^\d{4}-\d{2}$/.test(h)).sort().slice(-12);
   
   if (monthHeaders.length === 0) {
     container.innerHTML = '<p class="no-data">No billing history found.</p>';
