@@ -42,6 +42,63 @@ function cleanDate(val) {
   return String(val).trim();
 }
 
+// Helper to seed a sheet tab from local Excel template if it's missing online
+async function seedSheetFromExcel(sheets, spreadsheetId, sheetName) {
+  try {
+    const ExcelJS = require('exceljs');
+    const EXCEL_FILE = path.join(__dirname, 'Master_IT_Purchases_and_Billing.xlsx');
+    if (!fs.existsSync(EXCEL_FILE)) return;
+
+    // 1. Create the sheet online
+    await sheets.spreadsheets.batchUpdate({
+      spreadsheetId,
+      requestBody: {
+        requests: [{ addSheet: { properties: { title: sheetName } } }]
+      }
+    });
+
+    // 2. Read local excel worksheet data
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.readFile(EXCEL_FILE);
+    const localSheet = workbook.getWorksheet(sheetName);
+    if (!localSheet) return;
+
+    const uploadValues = [];
+    for (let r = 1; r <= localSheet.rowCount; r++) {
+      const row = localSheet.getRow(r);
+      const rowValues = [];
+      const maxCol = Math.max(row.cellCount, 26);
+      for (let c = 1; c <= maxCol; c++) {
+        const cell = row.getCell(c);
+        let cellVal = cell.value;
+        if (cellVal && typeof cellVal === 'object') {
+          if (cellVal.result !== undefined) cellVal = cellVal.result;
+          else if (cellVal.richText) cellVal = cellVal.richText.map(t => t.text).join('');
+          else if (cellVal.text) cellVal = cellVal.text;
+          else if (cellVal instanceof Date) cellVal = cellVal.toISOString().split('T')[0];
+          else cellVal = JSON.stringify(cellVal);
+        }
+        rowValues.push(cellVal !== undefined && cellVal !== null ? String(cellVal) : '');
+      }
+      if (rowValues.some(v => v !== '')) {
+        uploadValues.push(rowValues);
+      }
+    }
+
+    if (uploadValues.length > 0) {
+      await sheets.spreadsheets.values.update({
+        spreadsheetId,
+        range: `${sheetName}!A1`,
+        valueInputOption: 'USER_ENTERED',
+        requestBody: { values: uploadValues }
+      });
+      console.log(`[Google Sheets] Seeded missing tab: "${sheetName}" from local Excel template.`);
+    }
+  } catch (err) {
+    console.error(`[Google Sheets] Failed to seed missing tab "${sheetName}":`, err.message);
+  }
+}
+
 // Load all Sheets
 async function loadGoogleSheetsData() {
   const sheets = getSheetsClient();
@@ -49,15 +106,23 @@ async function loadGoogleSheetsData() {
 
   // Retrieve details of the sheets
   const meta = await sheets.spreadsheets.get({ spreadsheetId });
-  const sheetNames = meta.data.sheets.map(s => s.properties.title);
+  let sheetNames = meta.data.sheets.map(s => s.properties.title);
 
   const sheetsData = {};
 
   // Load active tracking tabs
   for (const [key, sheetName] of Object.entries(tabMapping)) {
     if (!sheetNames.includes(sheetName)) {
-      sheetsData[key] = { headers: [], rows: [] };
-      continue;
+      await seedSheetFromExcel(sheets, spreadsheetId, sheetName);
+      
+      // Re-fetch sheet metadata to include new sheet
+      const updatedMeta = await sheets.spreadsheets.get({ spreadsheetId });
+      sheetNames = updatedMeta.data.sheets.map(s => s.properties.title);
+      
+      if (!sheetNames.includes(sheetName)) {
+        sheetsData[key] = { headers: [], rows: [] };
+        continue;
+      }
     }
 
     const response = await sheets.spreadsheets.values.get({
