@@ -1,4 +1,4 @@
-# KD Purchases & Billing Dashboard
+# Webvoltz Purchases & Billing Dashboard
 
 A secure, local, and ultra-lightweight dashboard designed to track IT purchases, licenses, credentials, domains, hosting plans, and AI models. It runs locally on your machine and supports dual-mode synchronization: editing a local Excel spreadsheet or syncing in real-time with a live cloud Google Sheet.
 
@@ -63,7 +63,7 @@ Connecting your dashboard to Google Sheets allows multiple team members to view 
 To let the Node.js server write to your Google Sheet, we need to generate a secure Google Service Account.
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a new project (e.g., "KD-Purchases-Dashboard").
+2. Create a new project (e.g., "Webvoltz-Purchases-Dashboard").
 3. Search for the **Google Sheets API** in the search bar at the top, click it, and click **Enable**.
 4. Go to **IAM & Admin** > **Service Accounts** in the left sidebar.
 5. Click **+ Create Service Account** at the top.
@@ -110,7 +110,7 @@ node server.js
 ```
 The server output in the terminal will now read:
 ```text
-KD Purchases Server running on http://localhost:3000
+Webvoltz Purchases Server running on http://localhost:3000
 Active Database Sync Mode: [Google Sheets]
 ```
 The bottom of your dashboard sidebar will also update to **Sync: Google Sheets**. Any additions, edits, uploads, or archives done through the webpage will now sync instantly with your Google Sheet in the cloud!

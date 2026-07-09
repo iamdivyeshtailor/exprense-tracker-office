@@ -44,6 +44,29 @@ const upload = multer({ storage: storage });
 // Path to our master local excel file
 const EXCEL_FILE = path.join(__dirname, 'Master_IT_Purchases_and_Billing.xlsx');
 
+// Helper to get all month headers from 2023-01 to the current calendar month
+function getRequiredMonthHeaders() {
+  const months = [];
+  const d = new Date();
+  const startYear = 2023;
+  const startMonth = 1;
+  const currentYear = d.getFullYear();
+  const currentMonth = d.getMonth() + 1;
+
+  let y = startYear;
+  let m = startMonth;
+  while (y < currentYear || (y === currentYear && m <= currentMonth)) {
+    const mm = String(m).padStart(2, '0');
+    months.push(`${y}-${mm}`);
+    m++;
+    if (m > 12) {
+      m = 1;
+      y++;
+    }
+  }
+  return months;
+}
+
 // Check active mode
 function getActiveMode() {
   const isGS = googleSheets.isSheetsConfigured();
@@ -172,6 +195,21 @@ async function loadExcelData() {
       headers.push(getCellValue(cell));
     });
     headers = headers.filter(Boolean);
+
+    // Auto-expand headers with any missing months up to today
+    const requiredMonths = getRequiredMonthHeaders();
+    let modified = false;
+    requiredMonths.forEach(m => {
+      if (!headers.includes(m)) {
+        headers.push(m);
+        historySheet.getRow(1).getCell(headers.length).value = m;
+        modified = true;
+      }
+    });
+    if (modified) {
+      historySheet.getRow(1).commit();
+      await workbook.xlsx.writeFile(EXCEL_FILE);
+    }
 
     for (let r = 2; r <= historySheet.rowCount; r++) {
       const row = historySheet.getRow(r);
@@ -558,7 +596,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Boot server
 app.listen(PORT, () => {
-  console.log(`KD Purchases Server running on http://localhost:${PORT}`);
+  console.log(`Webvoltz Purchases Server running on http://localhost:${PORT}`);
   console.log(`Active Database Sync Mode: [${getActiveMode()}]`);
   
   // Initialize automatic notification scheduler (uses getUnifiedData loader)
