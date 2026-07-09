@@ -605,15 +605,7 @@ function filterAndRenderActiveTable() {
         `;
         td.querySelector('.toggle-pwd-btn').addEventListener('click', togglePasswordVisibility);
       } else if (headerLower === 'id' || headerLower === 'username') {
-        td.innerHTML = `
-          <div class="credential-cell">
-            <span class="credential-text" data-user="${val}">${val ? val.substring(0, 15) + (val.length > 15 ? '...' : '') : ''}</span>
-            <button class="credential-btn toggle-user-btn" title="View Full ID">
-              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.82l2.92 2.92c1.63-1.44 2.78-3.4 3.44-5.74-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7z"/></svg>
-            </button>
-          </div>
-        `;
-        td.querySelector('.toggle-user-btn').addEventListener('click', toggleUserVisibility);
+        td.textContent = val;
       } else if (headerLower.includes('expiry') && val) {
         const expDate = new Date(val);
         if (!isNaN(expDate.getTime())) {
@@ -947,14 +939,65 @@ function openModal(row = null) {
         input.appendChild(option);
       }
     } else {
-      input = document.createElement('input');
-      input.type = 'text';
-      input.name = header;
-      input.value = value;
+      const isCostField = headerLower === 'cost' || headerLower === 'price' || headerLower === 'renewal price';
+      if (isCostField) {
+        let currentCurrency = '₹';
+        let currentAmount = '';
+        if (value) {
+          const valStr = String(value).trim();
+          if (valStr.startsWith('$')) { currentCurrency = '$'; currentAmount = valStr.substring(1).trim(); }
+          else if (valStr.startsWith('€')) { currentCurrency = '€'; currentAmount = valStr.substring(1).trim(); }
+          else if (valStr.startsWith('A$')) { currentCurrency = 'A$'; currentAmount = valStr.substring(2).trim(); }
+          else if (valStr.startsWith('₹')) { currentCurrency = '₹'; currentAmount = valStr.substring(1).trim(); }
+          else {
+            const num = parseFloat(valStr.replace(/[^\d.-]/g, ''));
+            currentAmount = isNaN(num) ? valStr : String(num);
+            if (activeTab === 'aiModels' && num <= 1000) {
+              currentCurrency = '$';
+            }
+          }
+        }
+        
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'flex';
+        wrapper.style.gap = '0.5rem';
+        
+        const select = document.createElement('select');
+        select.className = 'currency-selector';
+        select.style.width = '85px';
+        select.style.flexShrink = '0';
+        select.innerHTML = `
+          <option value="₹">₹ (INR)</option>
+          <option value="$">$ (USD)</option>
+          <option value="€">€ (EUR)</option>
+          <option value="A$">A$ (AUD)</option>
+        `;
+        select.value = currentCurrency;
+        
+        input = document.createElement('input');
+        input.type = 'number';
+        input.step = 'any';
+        input.className = 'currency-amount-input';
+        input.name = header;
+        input.value = currentAmount;
+        input.placeholder = '0.00';
+        input.style.flexGrow = '1';
+        
+        wrapper.appendChild(select);
+        wrapper.appendChild(input);
+        div.appendChild(wrapper);
+      } else {
+        input = document.createElement('input');
+        input.type = 'text';
+        input.name = header;
+        input.value = value;
+        div.appendChild(input);
+      }
     }
 
-    input.id = `input-${header.replace(/\s+/g, '-')}`;
-    div.appendChild(input);
+    if (input) {
+      input.id = `input-${header.replace(/\s+/g, '-')}`;
+    }
     modalFormFields.appendChild(div);
   });
 
@@ -977,7 +1020,18 @@ async function handleFormSubmit(e) {
   const inputs = modalFormFields.querySelectorAll('input, textarea, select');
   
   inputs.forEach(input => {
-    formData[input.name] = input.value;
+    if (input.className === 'currency-amount-input') {
+      const select = input.previousElementSibling;
+      if (select && select.className === 'currency-selector') {
+        formData[input.name] = select.value + ' ' + input.value;
+      } else {
+        formData[input.name] = input.value;
+      }
+    } else if (input.className === 'currency-selector') {
+      // skip
+    } else if (input.name) {
+      formData[input.name] = input.value;
+    }
   });
 
   // Attach invoice path if uploaded

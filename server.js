@@ -209,18 +209,27 @@ function calculateStats(data) {
   const now = new Date();
   const warningDays = 30;
 
-  function parseCost(val) {
-    if (typeof val === 'number') return val;
+  function parseCostToINR(val) {
     if (!val) return 0;
-    const clean = String(val).replace(/[^\d.-]/g, '');
+    const str = String(val).trim();
+    const clean = str.replace(/[^\d.-]/g, '');
     const num = parseFloat(clean);
-    return isNaN(num) ? 0 : num;
+    if (isNaN(num)) return 0;
+    
+    if (str.includes('$')) {
+      return num * 83; // USD to INR
+    } else if (str.includes('€')) {
+      return num * 90; // EUR to INR
+    } else if (str.includes('A$')) {
+      return num * 55; // AUD to INR
+    }
+    return num;
   }
 
   if (data.purchases && data.purchases.rows) {
     data.purchases.rows.forEach(row => {
       activeSubCount++;
-      const cost = parseCost(row['Cost']);
+      const cost = parseCostToINR(row['Cost']);
       const license = String(row['License #'] || '').toLowerCase();
       if (license.includes('yearly') || license.includes('annual')) {
         totalCost += (cost / 12);
@@ -241,7 +250,7 @@ function calculateStats(data) {
   if (data.domains && data.domains.rows) {
     domainsCount = data.domains.rows.length;
     data.domains.rows.forEach(row => {
-      const cost = parseCost(row['Renewal Price'] || row['COST'] || 0);
+      const cost = parseCostToINR(row['Renewal Price'] || row['COST'] || 0);
       totalCost += (cost / 12);
 
       if (row['Expiry']) {
@@ -257,7 +266,7 @@ function calculateStats(data) {
   if (data.servers && data.servers.rows) {
     serversCount = data.servers.rows.length;
     data.servers.rows.forEach(row => {
-      const cost = parseCost(row['Cost']);
+      const cost = parseCostToINR(row['Cost']);
       const license = String(row['License #'] || '').toLowerCase();
       if (license.includes('yearly')) {
         totalCost += (cost / 12);
@@ -277,7 +286,7 @@ function calculateStats(data) {
 
   if (data.aiModels && data.aiModels.rows) {
     data.aiModels.rows.forEach(row => {
-      const price = parseCost(row['PRICE']);
+      const price = parseCostToINR(row['PRICE']);
       const plan = String(row['Plan'] || '').toLowerCase();
       if (plan.includes('yearly')) {
         totalCost += (price / 12);
