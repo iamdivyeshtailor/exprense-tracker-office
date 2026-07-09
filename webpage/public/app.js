@@ -385,15 +385,10 @@ function renderSpendChart() {
   if (!appData || !appData.billingHistory) return;
 
   const history = appData.billingHistory;
-  const monthHeaders = history.headers.filter(h => /^\d{4}-\d{2}$/.test(h)).sort().slice(-12);
+  const allMonths = history.headers.filter(h => /^\d{4}-\d{2}$/.test(h)).sort();
   
-  if (monthHeaders.length === 0) {
-    container.innerHTML = '<p class="no-data">No billing history found.</p>';
-    return;
-  }
-
-  // Calculate monthly totals
-  const monthlyTotals = monthHeaders.map(month => {
+  // Calculate totals for all months
+  const allMonthlyTotals = allMonths.map(month => {
     let total = 0;
     history.rows.forEach(row => {
       const val = row[month];
@@ -405,6 +400,45 @@ function renderSpendChart() {
     });
     return Math.round(total);
   });
+
+  // Find index of the most recent month with total > 0
+  let lastActiveIdx = -1;
+  for (let i = allMonthlyTotals.length - 1; i >= 0; i--) {
+    if (allMonthlyTotals[i] > 0) {
+      lastActiveIdx = i;
+      break;
+    }
+  }
+
+  let monthHeaders = [];
+  let monthlyTotals = [];
+
+  if (lastActiveIdx === -1) {
+    // Fallback: slice last 12 months
+    monthHeaders = allMonths.slice(-12);
+    monthlyTotals = monthHeaders.map(month => {
+      let total = 0;
+      history.rows.forEach(row => {
+        const val = row[month];
+        if (val !== undefined && val !== null && val !== '') {
+          const clean = String(val).replace(/[^\d.-]/g, '');
+          const num = parseFloat(clean);
+          if (!isNaN(num)) total += num;
+        }
+      });
+      return Math.round(total);
+    });
+  } else {
+    // Slice 12 months ending at lastActiveIdx
+    const startIdx = Math.max(0, lastActiveIdx - 11);
+    monthHeaders = allMonths.slice(startIdx, lastActiveIdx + 1);
+    monthlyTotals = allMonthlyTotals.slice(startIdx, lastActiveIdx + 1);
+  }
+  
+  if (monthHeaders.length === 0) {
+    container.innerHTML = '<p class="no-data">No billing history found.</p>';
+    return;
+  }
 
   const maxVal = Math.max(...monthlyTotals, 10000) * 1.1; // 10% spacing top
   const minVal = 0;
