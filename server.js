@@ -67,6 +67,36 @@ function getRequiredMonthHeaders() {
   return months;
 }
 
+// Helper to fill down blank cells (inheriting values from row above for grouped items)
+function fillDownGroupedRows(rows, headers) {
+  const fillDownHeaders = [
+    'billing name', 'platform', 'platform - plan', 
+    'url to login', 'link', 'url', 'url to login ',
+    'id', 'username', 'user', 
+    'pwd', 'password', 
+    'asset name', 'billing cycle'
+  ];
+
+  const lastValues = {};
+  
+  rows.forEach(row => {
+    headers.forEach(h => {
+      if (!h) return;
+      const hLower = h.toLowerCase().trim();
+      if (fillDownHeaders.includes(hLower)) {
+        const val = row[h];
+        if (val !== undefined && val !== null && String(val).trim() !== '' && String(val).trim() !== '—' && String(val).trim() !== '-') {
+          lastValues[h] = val;
+        } else {
+          if (lastValues[h] !== undefined) {
+            row[h] = lastValues[h];
+          }
+        }
+      }
+    });
+  });
+}
+
 // Check active mode
 function getActiveMode() {
   const isGS = googleSheets.isSheetsConfigured();
@@ -179,6 +209,7 @@ async function loadExcelData() {
       }
     }
     
+    fillDownGroupedRows(data, headers);
     sheetsData[tab.key] = {
       headers: headers.filter(Boolean),
       rows: data

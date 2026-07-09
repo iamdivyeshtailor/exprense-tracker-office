@@ -42,6 +42,71 @@ function cleanDate(val) {
   return String(val).trim();
 }
 
+// Helper to get all month headers from 2023-01 to the current calendar month
+function getRequiredMonthHeaders() {
+  const months = [];
+  const d = new Date();
+  const startYear = 2023;
+  const startMonth = 1;
+  const currentYear = d.getFullYear();
+  const currentMonth = d.getMonth() + 1;
+
+  let y = startYear;
+  let m = startMonth;
+  while (y < currentYear || (y === currentYear && m <= currentMonth)) {
+    const mm = String(m).padStart(2, '0');
+    months.push(`${y}-${mm}`);
+    m++;
+    if (m > 12) {
+      m = 1;
+      y++;
+    }
+  }
+  return months;
+}
+
+// Convert 1-based column index to Excel column letter (e.g. 1 -> A, 27 -> AA)
+function getColLetter(index) {
+  let temp = index;
+  let letter = '';
+  while (temp > 0) {
+    let temp2 = (temp - 1) % 26;
+    letter = String.fromCharCode(65 + temp2) + letter;
+    temp = parseInt((temp - temp2) / 26);
+  }
+  return letter;
+}
+
+// Helper to fill down blank cells (inheriting values from row above for grouped items)
+function fillDownGroupedRows(rows, headers) {
+  const fillDownHeaders = [
+    'billing name', 'platform', 'platform - plan', 
+    'url to login', 'link', 'url', 'url to login ',
+    'id', 'username', 'user', 
+    'pwd', 'password', 
+    'asset name', 'billing cycle'
+  ];
+
+  const lastValues = {};
+  
+  rows.forEach(row => {
+    headers.forEach(h => {
+      if (!h) return;
+      const hLower = h.toLowerCase().trim();
+      if (fillDownHeaders.includes(hLower)) {
+        const val = row[h];
+        if (val !== undefined && val !== null && String(val).trim() !== '' && String(val).trim() !== '—' && String(val).trim() !== '-') {
+          lastValues[h] = val;
+        } else {
+          if (lastValues[h] !== undefined) {
+            row[h] = lastValues[h];
+          }
+        }
+      }
+    });
+  });
+}
+
 // Helper to seed a sheet tab from local Excel template if it's missing online
 async function seedSheetFromExcel(sheets, spreadsheetId, sheetName) {
   try {
@@ -137,6 +202,28 @@ async function loadGoogleSheetsData() {
     }
 
     const headers = values[0];
+    
+    // Auto-expand headers for billing history to match calendar months up to today
+    if (key === 'billingHistory') {
+      const requiredMonths = getRequiredMonthHeaders();
+      let modified = false;
+      requiredMonths.forEach(m => {
+        if (!headers.includes(m)) {
+          headers.push(m);
+          modified = true;
+        }
+      });
+      if (modified) {
+        await sheets.spreadsheets.values.update({
+          spreadsheetId,
+          range: `${sheetName}!A1:${getColLetter(headers.length)}1`,
+          valueInputOption: 'USER_ENTERED',
+          requestBody: { values: [headers] }
+        });
+        console.log(`[Google Sheets] Automatically expanded Monthly Billing History headers up to current month.`);
+      }
+    }
+    
     const rows = [];
 
     for (let i = 1; i < values.length; i++) {
@@ -163,6 +250,9 @@ async function loadGoogleSheetsData() {
       }
     }
 
+    if (key !== 'billingHistory') {
+      fillDownGroupedRows(rows, headers);
+    }
     sheetsData[key] = {
       headers: headers.filter(Boolean),
       rows
