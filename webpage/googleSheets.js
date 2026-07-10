@@ -192,7 +192,7 @@ async function loadGoogleSheetsData() {
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
-      range: `${sheetName}!A:Z`
+      range: `${sheetName}!A:ZZ`
     });
 
     const values = response.data.values || [];
@@ -379,7 +379,7 @@ async function saveGoogleSheetsRow(type, rowIndex, data) {
   // Fetch current sheet to get headers structure
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId,
-    range: `${sheetName}!A1:Z1`
+    range: `${sheetName}!A1:ZZ1`
   });
   
   let headers = (response.data.values && response.data.values[0]) || [];
@@ -412,7 +412,7 @@ async function saveGoogleSheetsRow(type, rowIndex, data) {
     // Edit existing row
     await sheets.spreadsheets.values.update({
       spreadsheetId,
-      range: `${sheetName}!A${rowIndex}:Z${rowIndex}`,
+      range: `${sheetName}!A${rowIndex}:${getColLetter(headers.length)}${rowIndex}`,
       valueInputOption: 'USER_ENTERED',
       requestBody: { values: [rowArray] }
     });
@@ -443,7 +443,7 @@ async function archiveGoogleSheetsRow(type, rowIndex) {
   // Read the source row to archive
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId,
-    range: `${sourceSheet}!A${rowIndex}:Z${rowIndex}`
+    range: `${sourceSheet}!A${rowIndex}:ZZ${rowIndex}`
   });
 
   const rowValues = (response.data.values && response.data.values[0]) || [];
@@ -467,7 +467,7 @@ async function archiveGoogleSheetsRow(type, rowIndex) {
   const emptyRow = rowValues.map(() => '');
   await sheets.spreadsheets.values.update({
     spreadsheetId,
-    range: `${sourceSheet}!A${rowIndex}:Z${rowIndex}`,
+    range: `${sourceSheet}!A${rowIndex}:${getColLetter(rowValues.length)}${rowIndex}`,
     valueInputOption: 'USER_ENTERED',
     requestBody: { values: [emptyRow] }
   });
